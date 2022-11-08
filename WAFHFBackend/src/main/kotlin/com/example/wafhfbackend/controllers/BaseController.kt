@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping
 class BaseController {
     @GetMapping("/")
     fun index(): String {
-        return "index"
+        return "login"
     }
 }
