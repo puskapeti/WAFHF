@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipes</title>
+</head>
+<body>
+  <div class="container" th:each="recipe, status : ${recipes}">
+      <h3 th:inline="text">Recipe: [[${recipe.name}]]</h3>
+      <div class="mt-1" th:each="ingredient : ${recipe.ingredients}">
+         <p th:text="${ingredient}"></p>
+      </div>
+      <div class="mt-1" th:each="step : ${recipe.steps}">
+          <p th:text="${step}"></p>
+      </div>
+      <a class="btn btn-danger" th:href="@{/recipes/delete/{id}(id=${recipe.recipeId})}">Delete</a>
+  </div>
+</body>
+</html>
