@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+</head>
+<body>
+<div>
+    <h1>Access denied.</h1>
+    <p>You do not have permission to view this page.</p>
+    <form th:action="@{/logout}" method="post">
+        <p>
+            <a href="/" th:href="@{/}">Back to home page</a>
+            <input type="submit" value="Sign Out" />
+        </p>
+    </form>
+</div>
+</body>
+</html>
