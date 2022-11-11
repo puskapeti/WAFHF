@@ -6,13 +6,16 @@ import javax.persistence.*
 class Recipe(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private val recipeId: Long? = null,
-    private val name: String,
+    val recipeId: Long? = null,
+    val name: String,
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "recipe_ingredients", joinColumns = [JoinColumn(name = "recipeId")])
-    val ingredients: Set<String>
+    val ingredients: Set<String>,
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "recipe_steps", joinColumns = [JoinColumn(name = "recipeId")])
+    val steps: Set<String>,
 ) {
     override fun toString(): String {
-        return "Recipe[$recipeId]: $name, ingredients: $ingredients"
+        return "Recipe[$recipeId]: $name, ingredients: $ingredients, steps: $steps"
     }
 }
