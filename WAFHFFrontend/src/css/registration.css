@@ -44,15 +44,20 @@ body{
 .nav li{
 	padding: 2%;
 	margin: 2%;
-    transition: background 0.5s;
+	transition: background 0.5s;
 	background-color: #ca0000;
+	border: solid 1px #ca0000;
+	border-radius: 10px;
 }
+
+
 
 .nav li:hover{
 	background-color: #750000;
 	border-radius: 1;
 	border-width: 2;
 	border: solid 1px #000000;
+	border-radius: 14px;
 }
 
 .aside_left{
@@ -99,7 +104,6 @@ body{
 	bottom:0;
 }
 
-
 .admins{
 	color: black;
 	padding: 4%;
@@ -140,9 +144,23 @@ body{
 	height: 80%;
 }
 
-img{
+.cover img{
+	border:solid 4px #000000;
+	box-shadow: 5px 5px ;
+    border-radius: 4px;
+	width: 80%;
+	height: 80%;
+}
+
+.aside_left img{
 	max-width: 100%;
 	border-radius: 5px;
+	box-shadow: 2px 2px #343434;
+}
+.aside_right img{
+	max-width: 100%;
+	border-radius: 5px;
+	box-shadow: 2px 2px #343434;
 }
 
 
@@ -158,27 +176,35 @@ img{
 	font-size: 1.1rem;
 	font-weight: bold;
 	color:#000000;
-	background-image: url(../images/borito.jpeg);
+	background-image: url(../pages/images/borito.jpeg);
 	background-position: center;
-	background-size: 110%;
+	background-size: 95%;
 	border-top: 2px solid black;
   	width: 100%;
   	bottom: 0px;
   	left: 0px;
-	background-color: #ca0000;
+	background-color: #ffffff;
 	display: flex; 
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: space-evenly;
 }
-.footer p{
-	color: #FFFFFF;
+.foot_cpr{
+	color: #000000;
+	position: center;
+	color: rgb(224, 226, 173);
+	text-shadow: 2px 1px #575757;
+
 }
 
-.footer a{
+footer .foot_face{
 	color:#1779b1;
+	position: absolute;
+	left: 1140px;
 }
-.footer b{
-	color:#b12617;
+footer .foot_youtube{
+	color:#a40909;
+	position: absolute;
+	left: 135px;
 }
 
 .random_offer{
@@ -226,6 +252,49 @@ img{
 
 /* From here comes the code that differs */
 
+.main{
+	grid-row: 2;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	position: relative;
+	padding: 5%;
+	margin: 5%;
+	text-align: center;
+}
+.buttons{
+	background-image: url(../pages/images/oldalso.jpeg);
+	bottom: 0;
+	padding: 3%;
+	grid-column: 2;
+	grid-row: 3;
+	text-align: center;
+	border: 0.5px solid black;
+}
+.buttons a{
+	padding: 10px;
+	background: #9c7e06;
+	color: #FFFFFF;
+	text-decoration: none;
+	display: inline-block;
+	border-radius: 10px;
+	transition: background 0.5s;
+}
+.buttons a:hover{
+	cursor: pointer;
+	color: rgb(209, 209, 209);
+}
+.buttons1234{
+	padding: 10px;
+	background: #9c7e06;
+	color: #FFFFFF;
+	text-decoration: none;
+	display: inline-block;
+	border-radius: 10px;
+	transition: background 0.5s;
+	cursor: pointer;
+	color: rgb(209, 209, 209);
+}
+
 .regbutton{
 	color:#0025df;
 	font-size: 120%;
@@ -239,15 +308,6 @@ img{
 	color: rgb(255, 255, 255);
 	background: #ce0000;
 }
-.main{
-	grid-row: 2;
-	grid-column-start: 2;
-	grid-column-end: 3;
-	position: relative;
-	padding: 5%;
-	margin: 5%;
-	text-align: center;
-}
 
 .reg_form label{
 	display: block; 
@@ -259,4 +319,8 @@ img{
 	border: solid 1px #000000;
 	border-radius: 4px;
 	box-shadow: #575757 2px 2px;
+}
+.aszf{
+	color:#3993c7;
+	position: center;
 }
