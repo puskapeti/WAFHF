@@ -1,10 +1,11 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Bevásárló kosár</title>
-    <link rel="stylesheet" href="../css/cook_plan.css">
+    <title>Bevásárló lista</title>
+    <link rel="stylesheet" href="../css/shoppinglist.css">
 	<meta name="viewport" content="width=device-width? initial-scal=1.0" /> 
 </head>
 <body>
@@ -13,17 +14,18 @@
 		<header class="header">
 			<p class="cover">
 				Üdvözöljük a RecepTúra oldalán, a receptek végtelen tárházában!
-				<img class = "cover" src = "../pages/images/logo.jpeg" />
+				<img class="cover_img" src = "../pages/images/logo.jpeg" />
 			</p>
 		</header>
 
 		<aside class="aside_left">
 			<nav class="nav">
 				<ul>
-					<li><a class="pagenav1" href="../pages/main.html">Főoldal</a></li>
-					<li><a class="oldalnav3" href="../pages/shoppinglist.html">Bevásárló lista</a></li>
-					<li><a class="oldalnav2" href="../pages/cook_plan.html">Heti terv</a></li>
-					<li ><a class="user" href="../pages/registration.html">Belépés</a></li>	
+					<li><a class="pagenav1" href="main.html">Főoldal</a></li>
+					<li><a class="oldalnav2" href="recipe_page01.html">Receptek</a></li>
+					<li><a class="oldalnav3" href="shoppinglist.html">Bevásárló lista</a></li>
+					<li ><a class="user1" href="login.html">Belépés</a></li>
+					<li ><a class="user2" href="registration.html">Regisztráció</a></li>			
 				</ul>
 			</nav>
 			
@@ -48,55 +50,59 @@
 					Hírdetés:
 				</h3>
 				<p>
-					Kispanda született a Nyíregyházi Állatparkban.
+					Kispanda született a Nyíregyházi Állatparkban.  cikk: 22.07.10.
 				</p>
 				<img src="images/panda.gif" alt="Advertisement" />
 			</section>
 		</aside class="aside_left">
 
-		<main class="main">	
-			
-			
-		</main>
-
-	
 		<aside class="aside_right">	
 				<section class="random_offer">
-          <h3>
+					<h3>
 						<u>Heti ajánlatunk:</u>
 					</h3>
 					<p>
-						*Recept neve backendből*
+						*random Recept neve backendből*
 					</p>
 					<img src = "../pages/images/csiga.jpeg" style="border:solid 2px #000000;
 					box-shadow: 5px 5px ;
 					width: 95%;
 					height: 95%;">
-					<a>Ugrás a recepthez</a>
+					<a>Ugrás ehhez a recepthez</a>
+					<a href="recipe_page01.html">Ugrás random recepthez &#128170; </a>		
 				</section>
 				<section  class="adverts_right">
 					<h3>
 						Hírdetés:
 					</h3>
 					<p>
-					Divatos és minőségi ruhák a legjobb áron! 
+					Divatos és minőségi ruhák a legjobb áron!
+					Ugorj be a H&amp;M-be! 
 					</p>
-					<img src="pages/images/hmnewsd.jpeg" alt="Advertisement" />
-				</section>			
+					<img src="../pages/images/hmhird.jpeg" alt="Advertisement" style="box-shadow: 2px 2px #5f5f5f;" />
+					<p>
+					Megjelent a mozikban a Croodék c. mesefilm.
+					Vár a Cinema City!
+					</p>
+					<img src="../pages/images/croods.gif" alt="Advertisement" style="box-shadow: 2px 2px #5f5f5f;" />
+				</section>	
 		</aside>
 
 		<footer class="footer">
-			<div class="foot_youtube">
-				<img src="images/yout.webp" width="40" height="40" />
-				<b href="https://www.youtube.com/user/MrSzoky68"> YouTube</b>
+			<img src="images/yout.webp" width="40" height="40" />
+				<a class="foot_youtube" href="https://www.youtube.com/user/MrSzoky68">youtube/receptura</a>
+			<div class="foot_cpr">
+				<div><small>Copyright &copy; 2018-2022 <p>Minden jog fenntartva!</p></small></div>
 			</div>
-			<div><small>Copyright &copy; 2018-2022</small></div>
-			<div class="foot_face">
-				<img src="images/face.webp" width="40" height="40" />
-				<a href="https://www.facebook.com/NoSalty"> Facebook</a>
-
-			</div class="foot_cpr">
+			<img src="images/face.webp" width="40" height="40" />
+				<a class="foot_face" href="https://www.facebook.com/NoSalty">facebook/receptura</a>
 		</footer>
+
+		<!--From here comes the code that differs -->
+
+		<main class="main">	
+
+		</main>
 	</div>
 </body>
 </html>
