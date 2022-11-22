@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,18 +14,18 @@
 		<header class="header">
 			<p class="cover">
 				Üdvözöljük a RecepTúra oldalán, a receptek végtelen tárházában!
-				<img class="cover_img" src = "../pages/images/logo.jpeg" />
 			</p>
+			<img src = "../pages/images/logo.jpeg" />
 		</header>
 
 		<aside class="aside_left">
 			<nav class="nav">
 				<ul>
-					<li><a class="pagenav1" href="main.html">Főoldal</a></li>
-					<li><a class="oldalnav2" href="recipe_page01.html">Receptek</a></li>
-					<li><a class="oldalnav3" href="shoppinglist.html">Bevásárló lista</a></li>
-					<li ><a class="user1" href="login.html">Belépés</a></li>
-					<li ><a class="user2" href="registration.html">Regisztráció</a></li>				
+					<li><a class="pagenav1" href="../pages/main.html">Főoldal</a></li>
+					<li><a class="oldalnav2" href="../pages/cook_plan.html">Heti terv</a></li>
+					<li><a class="oldalnav3" href="../pages/shoppinglist.html">Bevásárló lista</a></li>
+					<li ><a class="user1" href="../pages/login.html">Belépés</a></li>
+					<li ><a class="user2" href="../pages/registration.html">Regisztráció</a></li>				
 				</ul>
 			</nav>
 			
@@ -59,9 +58,9 @@
 
 		<aside class="aside_right">	
 				<section class="random_offer">
-					<h3>
+					<h2>
 						<u>Heti ajánlatunk:</u>
-					</h3>
+					</h2>
 					<p>
 						*random Recept neve backendből*
 					</p>
@@ -70,7 +69,7 @@
 					width: 95%;
 					height: 95%;">
 					<a>Ugrás ehhez a recepthez</a>
-					<a href="recipe_page01.html">Ugrás random recepthez &#128170; </a>		
+					<a href="recipe_page.html">Ugrás random recepthez &#128170; </a>		
 				</section>
 				<section  class="adverts_right">
 					<h3>
@@ -90,9 +89,9 @@
 		</aside>
 
 		<footer class="footer">
-			<img src="images/yout.webp" width="40" height="40" />
 				<a class="foot_youtube" href="https://www.youtube.com/user/MrSzoky68">youtube/receptura</a>
-			<div class="foot_cpr">
+			<img src="images/yout.webp" width="40" height="40" />
+				<div class="foot_cpr">
 				<div><small>Copyright &copy; 2018-2022 <p>Minden jog fenntartva!</p></small></div>
 			</div>
 			<img src="images/face.webp" width="40" height="40" />
@@ -102,6 +101,79 @@
 		<!--From here comes the code that differs -->
 		<main class="main">	
 			
+			<section class="recipe_list">
+				
+				<div>
+					<p class = "name">Recept neve backendből</h1>
+					<p class = "prep_time">Elkészítési idő: <br> 50 nap</p>
+					<img src ="images/palacsinta.jpeg" title="food_img"/>
+					<p class = "rec_info">
+						Alapvető információ, rövid összefoglaló a receptről
+					</p>
+					<a href="../pages/recipe_page.html">Recept Megnyitása</a>
+					
+					<div class="dropdown">
+						<button class="dropbtn">Recept hozzáadása az étlaphoz!</button>
+						<div class="dropdown-content">
+						  <a href="#">Hétfő</a>
+						  <a href="#">Kedd</a>
+						  <a href="#">Szerda</a>
+						  <a href="#">Csütörtök</a>
+						  <a href="#">Péntek</a>
+						  <a href="#">Szombat</a>
+						  <a href="#">Vasárnap</a>
+						</div>
+					</div>
+				</div>
+
+				
+				<div>
+					<p class = "name">Recept neve backendből</h1>
+					<p class = "prep_time">Elkészítési idő: <br> 50 nap</p>
+					<img src ="images/palacsinta.jpeg" title="food_img"/>
+					<p class = "rec_info">
+						Alapvető információ, rövid összefoglaló a receptről
+					</p>
+					<a href="../pages/recipe_page.html">Recept Megnyitása</a>
+					<button id="add_to">Hozzáadás a heti receptekhez</button>
+				</div>
+
+				<div>
+					<p class = "name">Recept neve backendből</h1>
+					<p class = "prep_time">Elkészítési idő: <br> 50 nap</p>
+					<img src ="images/palacsinta.jpeg" title="food_img"/>
+					<p class = "rec_info">
+						Alapvető információ, rövid összefoglaló a receptről
+					</p>
+					<a href="../pages/recipe_page.html">Recept Megnyitása</a>
+					<button id="add_to">Hozzáadás a heti receptekhez</button>
+				</div>
+
+				<div>
+					<p class = "name">Recept neve backendből</h1>
+					<p class = "prep_time">Elkészítési idő: <br> 50 nap</p>
+					<img src ="images/palacsinta.jpeg" title="food_img"/>
+					<p class = "rec_info">
+						Alapvető információ, rövid összefoglaló a receptről
+					</p>
+					<a href="../pages/recipe_page.html">Recept Megnyitása</a>
+					<button id="add_to">Hozzáadás a heti receptekhez</button>
+				</div>
+
+				<div>
+					<p class = "name">Recept neve backendből</h1>
+					<p class = "prep_time">Elkészítési idő: <br> 50 nap</p>
+					<img src ="images/palacsinta.jpeg" title="food_img"/>
+					<p class = "rec_info">
+						Alapvető információ, rövid összefoglaló a receptről
+					</p>
+					<a href="../pages/recipe_page.html">Recept Megnyitása</a>
+					<button id="add_to">Hozzáadás a heti receptekhez</button>
+				</div>
+
+				
+			<section\>
+
 		</main>
 
         <section class="buttons">
