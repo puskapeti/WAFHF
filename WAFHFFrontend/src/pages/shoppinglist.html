@@ -14,18 +14,18 @@
 		<header class="header">
 			<p class="cover">
 				Üdvözöljük a RecepTúra oldalán, a receptek végtelen tárházában!
-				<img class="cover_img" src = "../pages/images/logo.jpeg" />
 			</p>
+			<img src = "../pages/images/logo.jpeg" />
 		</header>
 
 		<aside class="aside_left">
 			<nav class="nav">
 				<ul>
-					<li><a class="pagenav1" href="main.html">Főoldal</a></li>
-					<li><a class="oldalnav2" href="recipe_page01.html">Receptek</a></li>
-					<li><a class="oldalnav3" href="shoppinglist.html">Bevásárló lista</a></li>
-					<li ><a class="user1" href="login.html">Belépés</a></li>
-					<li ><a class="user2" href="registration.html">Regisztráció</a></li>			
+					<li><a class="pagenav1" href="../pages/main.html">Főoldal</a></li>
+					<li><a class="oldalnav2" href="../pages/cook_plan.html">Heti terv</a></li>
+					<li><a class="oldalnav3" href="../pages/shoppinglist.html">Bevásárló lista</a></li>
+					<li ><a class="user1" href="../pages/login.html">Belépés</a></li>
+					<li ><a class="user2" href="../pages/registration.html">Regisztráció</a></li>				
 				</ul>
 			</nav>
 			
@@ -58,9 +58,9 @@
 
 		<aside class="aside_right">	
 				<section class="random_offer">
-					<h3>
+					<h2>
 						<u>Heti ajánlatunk:</u>
-					</h3>
+					</h2>
 					<p>
 						*random Recept neve backendből*
 					</p>
@@ -69,7 +69,7 @@
 					width: 95%;
 					height: 95%;">
 					<a>Ugrás ehhez a recepthez</a>
-					<a href="recipe_page01.html">Ugrás random recepthez &#128170; </a>		
+					<a href="recipe_page.html">Ugrás random recepthez &#128170; </a>		
 				</section>
 				<section  class="adverts_right">
 					<h3>
@@ -89,9 +89,9 @@
 		</aside>
 
 		<footer class="footer">
-			<img src="images/yout.webp" width="40" height="40" />
 				<a class="foot_youtube" href="https://www.youtube.com/user/MrSzoky68">youtube/receptura</a>
-			<div class="foot_cpr">
+			<img src="images/yout.webp" width="40" height="40" />
+				<div class="foot_cpr">
 				<div><small>Copyright &copy; 2018-2022 <p>Minden jog fenntartva!</p></small></div>
 			</div>
 			<img src="images/face.webp" width="40" height="40" />
@@ -99,10 +99,72 @@
 		</footer>
 
 		<!--From here comes the code that differs -->
-
 		<main class="main">	
 
+			<h2> Az Ön bevásárló listája: </h2>
+			<ul class ="ingredient_list">
+				<li>Ebbe a </li>
+				<li>Listaba </li>
+				<li>Kéne</li>
+				<li>Beletenni</li>
+				<li>az ingredients.html-t</li>
+			</ul>
+			<!-- Dummy ingredients to see how it would look like-->
+			<table class= "ingredient_table" >
+				<tr>
+					<td class="ing_name" >Rókagomba</td>
+					<td class="ing_qnt" >50 db</td>
+					<td class="others">
+						<input type="text" id="fname" name="fname"></input>
+						<button type="button_upd" class="btn btn-primary">Hozzávaló frissitése</button> 
+						<button type="button_del" class="btn btn-primary">Hozzávaló törlése</button> 		
+				
+				</tr>
+			</table>
+
+			<table class= "ingredient_table" >
+				<tr>
+					<td class="ing_name" >Rókagomba</td>
+					<td class="ing_qnt" >50 db</td>
+					<td class="others">
+						<input type="text" id="fname" name="fname"></input>
+						<button type="button_upd" class="btn btn-primary">Hozzávaló frissitése</button> 
+						<button type="button_del" class="btn btn-primary">Hozzávaló törlése</button> 		
+				
+				</tr>
+			</table>
+
+			<table class= "ingredient_table" >
+				<tr>
+					<td class="ing_name" >Rókagomba</td>
+					<td class="ing_qnt" >50 db</td>
+					<td class="others">
+						<input type="text" id="fname" name="fname"></input>
+						<button type="button_upd" class="btn btn-primary">Hozzávaló frissitése</button> 
+						<button type="button_del" class="btn btn-primary">Hozzávaló törlése</button> 		
+				
+				</tr>
+			</table>
+			
 		</main>
+		
+        <section class="buttons">
+			<div>
+				<a class="order_btn" href="order.html">MEGRENDELÉS </a>
+			</div>
+			<p>
+				<div class="buttons1234" role="group" aria-label="First group">
+					<button type="button1" class="btn btn-primary">1</button>
+					<button type="button2" class="btn btn-primary">2</button>
+					<button type="button3" class="btn btn-primary">3</button>
+					<button type="button4" class="btn btn-primary">4</button>
+					...
+					<button type="buttonlast" class="btn btn-primary"> &#10145;</button>
+				</div>
+				
+				<a href="#">Ugrás a lap tetejére &uarr; </a>
+			</p>
+		</section>
 	</div>
 </body>
 </html>
