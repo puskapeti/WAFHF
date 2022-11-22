@@ -1,5 +1,5 @@
 body{
-	background-color: #d7d7d7;
+	background-color: rgba(250, 246, 237, 255);
 	margin:0px;
 	color: black;
 	font-family: Georgia, Cambria, serif;
@@ -24,6 +24,34 @@ body{
 	display: flex;
 	flex-direction: column;
 	border: 2px solid black;
+	background-image: url(../pages/images/header.jpeg);
+	background-position: center;
+	background-size: cover;
+}
+
+
+.cover{
+	text-shadow: 3px 3px black;
+	width: 80%;
+	height: 80%;
+	flex: content;
+	color: white;
+	font-size: 3.2vmin;
+	font-weight: bold;
+	background-color: #40804dc4;
+	background-position: center;
+	background-clip: border-box;
+	border-radius: 4px;
+}
+
+
+.header img{
+	border:solid 4px #000000;
+	box-shadow: 5px 5px ;
+    border-radius: 4px;
+	margin-bottom: 10vh;
+	width: 80vmin;
+	height: 15vmin;
 }
 
 .nav{
@@ -45,15 +73,16 @@ body{
 	padding: 2%;
 	margin: 2%;
 	transition: background 0.5s;
-	background-color: #ca0000;
-	border: solid 1px #ca0000;
+	background-color: rgba(104,126,77,255);
+	border: solid 1px rgb(61, 61, 61);
 	border-radius: 10px;
+	font-size: 2.2vmin;
 }
 
 
 
 .nav li:hover{
-	background-color: #750000;
+	background-color: #035800;
 	border-radius: 1;
 	border-width: 2;
 	border: solid 1px #000000;
@@ -68,7 +97,7 @@ body{
 	grid-column: 1;
 	grid-row-start: 2;
 	grid-row-end: 4;
-	background-color: #c1956c;
+	background-color: #b18256;
 }
 
 .aside_right{
@@ -79,7 +108,7 @@ body{
 	grid-column: 3 ;
 	grid-row-start: 2;
 	grid-row-end: 4;
-	background-color: #c1956c;
+	background-color: #b18256;
 	padding: 4%;
 }
 
@@ -118,38 +147,12 @@ body{
 
 .admins li{
 	margin-inline-start: 0;
+	font-size: 2.2vmin;
 }
 .nav a{
 	color:#FFFFFF;
 	text-decoration: none;
     text-transform: uppercase;
-}
-
-.cover{
-	text-shadow: 1px 1px #575757;
-	width: 80%;
-	height: 80%;
-	flex: content;
-	color: #343434;
-	margin: 3%;
-	
-	font-size: 1.5rem;
-	font-weight: bold;
-}
-
-.cover_img{
-	border:solid 5px #000000;
-	box-shadow: 5px 5px ;
-	width: 80%;
-	height: 80%;
-}
-
-.cover img{
-	border:solid 4px #000000;
-	box-shadow: 5px 5px ;
-    border-radius: 4px;
-	width: 80%;
-	height: 80%;
 }
 
 .aside_left img{
@@ -186,25 +189,25 @@ body{
 	background-color: #ffffff;
 	display: flex; 
 	flex-direction: row;
-	justify-content: space-evenly;
+	justify-content: center;
 }
 .foot_cpr{
 	color: #000000;
 	position: center;
+	padding-left: 25%;
+	padding-right: 22%;
 	color: rgb(224, 226, 173);
 	text-shadow: 2px 1px #575757;
+}
 
+footer .foot_youtube{
+	color:#a40909;
+	padding: 0.25%;
 }
 
 footer .foot_face{
 	color:#1779b1;
-	position: absolute;
-	left: 1140px;
-}
-footer .foot_youtube{
-	color:#a40909;
-	position: absolute;
-	left: 135px;
+	padding: 0.5%;
 }
 
 .random_offer{
@@ -219,7 +222,7 @@ footer .foot_youtube{
 	width: 90%;
 	margin: 3%;
 	padding: 3%;
-	background: #ce0000;
+	background: rgba(104,126,77,255);
 	color: #FFFFFF;
 	text-decoration: none;
 	display: inline-block;
@@ -230,7 +233,7 @@ footer .foot_youtube{
 .random_offer a:hover{
 	cursor: pointer;
 
-	background: #750000;
+	background: #035800;
 	box-shadow: 2px 2px #575757;
 }
 @media screen and (max-width: 500px)
@@ -261,38 +264,16 @@ footer .foot_youtube{
 	margin: 5%;
 	text-align: center;
 }
-.buttons{
-	background-image: url(../pages/images/oldalso.jpeg);
-	bottom: 0;
-	padding: 3%;
-	grid-column: 2;
-	grid-row: 3;
-	text-align: center;
-	border: 0.5px solid black;
-}
-.buttons a{
-	padding: 10px;
-	background: #9c7e06;
-	color: #FFFFFF;
-	text-decoration: none;
-	display: inline-block;
-	border-radius: 10px;
-	transition: background 0.5s;
-}
-.buttons a:hover{
-	cursor: pointer;
-	color: rgb(209, 209, 209);
-}
-.buttons1234{
-	padding: 10px;
-	background: #9c7e06;
-	color: #FFFFFF;
-	text-decoration: none;
-	display: inline-block;
-	border-radius: 10px;
-	transition: background 0.5s;
-	cursor: pointer;
-	color: rgb(209, 209, 209);
+
+
+.main div{
+	width: 90%;
+	height: 20%;
+	box-shadow: 2px 2px #343434;
+	border: solid 2px #000000;
+	border-radius: 5px;
+	align-self: center;
+	background-image: url(../pages/images/wood.jpg);
 }
 
 .regbutton{
@@ -306,7 +287,7 @@ footer .foot_youtube{
 .regbutton:hover{
 	cursor: pointer;
 	color: rgb(255, 255, 255);
-	background: #ce0000;
+	background: rgba(104,126,77,255);
 }
 
 .reg_form label{
