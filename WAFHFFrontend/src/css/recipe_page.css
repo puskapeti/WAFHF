@@ -1,0 +1,374 @@
+body{
+	background-color: rgba(250, 246, 237, 255);
+	margin:0px;
+	color: black;
+	font-family: Georgia, Cambria, serif;
+	max-width: 100%;
+}
+.container{
+	display: grid;
+    grid-template-columns: 20% auto 20%;
+    grid-template-rows: 20% auto 8% 8%;
+}
+
+.nav{
+	padding: 0px;
+	margin-left: 0;
+	border-bottom: solid 2px #000000;
+}
+
+.nav ul{
+
+	list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+	padding-inline-start: 0;
+}
+
+.nav li{
+	padding: 2%;
+	margin: 2%;
+	transition: background 0.5s;
+	background-color: rgba(104,126,77,255);
+	border: solid 1px rgb(61, 61, 61);
+	border-radius: 10px;
+	font-size: 2.2vmin;
+}
+
+
+
+.nav li:hover{
+	background-color: #035800;
+	border-radius: 1;
+	border-width: 2;
+	border: solid 1px #000000;
+	border-radius: 14px;
+}
+
+.aside_left{
+	border: solid #000000;
+	border-top: 0;
+	border-bottom: 0;
+	border-width: 2;
+	grid-column: 1;
+	grid-row-start: 2;
+	grid-row-end: 4;
+	background-color: #b18256;
+}
+
+.aside_right{
+	border: solid #000000;
+	border-top: 0;
+	border-bottom: 0;
+	border-width: 2;
+	grid-column: 3 ;
+	grid-row-start: 2;
+	grid-row-end: 4;
+	background-color: #b18256;
+	padding: 4%;
+}
+
+.adverts_left{
+	color: black;
+	padding: 2%;
+	margin: 2%;
+}
+.adverts_right{
+
+	border-top: solid 2px #000000;
+	padding: 2%;
+	
+}
+.offer{
+	border-bottom: 2px #000000;
+	margin: 2%;
+	padding: 2%;
+}
+
+.foot_cpr{
+	bottom:0;
+}
+
+.admins{
+	color: black;
+	padding: 4%;
+
+	border-bottom: solid 2px #000000;
+}
+.admins ul{
+	margin-inline-start: 0;
+	padding-inline-start: 0;
+	list-style-type: none;
+}
+
+.admins li{
+	margin-inline-start: 0;
+	font-size: 2vmin;
+}
+.nav a{
+	color:#FFFFFF;
+	text-decoration: none;
+    text-transform: uppercase;
+}
+
+.cover{
+	text-shadow: 2px 2px #dadada;
+	width: 80%;
+	height: 80%;
+	flex: content;
+	color: #232323;
+	margin: 3%;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.cover_img{
+	border:solid 5px #000000;
+	box-shadow: 5px 5px ;
+	width: 80%;
+	height: 80%;
+}
+
+.cover img{
+	border:solid 4px #000000;
+	box-shadow: 5px 5px ;
+    border-radius: 4px;
+	width: 80%;
+	height: 80%;
+}
+
+.aside_left img{
+	max-width: 100%;
+	border-radius: 5px;
+	box-shadow: 2px 2px #343434;
+}
+.aside_right img{
+	max-width: 100%;
+	border-radius: 5px;
+	box-shadow: 2px 2px #343434;
+}
+
+
+.sum{
+	font-style: italic;
+}
+
+.footer{
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row: 4;
+	padding: 2%;
+	font-size: 1.1rem;
+	font-weight: bold;
+	color:#000000;
+	background-image: url(../pages/images/borito.jpeg);
+	background-position: center;
+	background-size: 95%;
+	border-top: 2px solid black;
+  	width: 100%;
+  	bottom: 0px;
+  	left: 0px;
+	background-color: #ffffff;
+	display: flex; 
+	flex-direction: row;
+	justify-content: center;
+}
+.foot_cpr{
+	color: #000000;
+	position: center;
+	padding-left: 25%;
+	padding-right: 22%;
+	color: rgb(224, 226, 173);
+	text-shadow: 2px 1px #575757;
+}
+
+footer .foot_youtube{
+	color:#a40909;
+	padding: 0.25%;
+}
+
+footer .foot_face{
+	color:#1779b1;
+	padding: 0.5%;
+}
+
+.random_offer{
+	padding: 3%;
+}
+
+.random_offer p{
+	color:rgb(255,255,255)
+}
+
+.random_offer a{
+	width: 90%;
+	margin: 3%;
+	padding: 3%;
+	background: rgba(104,126,77,255);
+	color: #FFFFFF;
+	text-decoration: none;
+	display: inline-block;
+	border-radius: 10px;
+	transition: background 0.5s;
+	text-align: center;
+}
+.random_offer a:hover{
+	cursor: pointer;
+
+	background: #035800;
+	box-shadow: 2px 2px #575757;
+}
+@media screen and (max-width: 500px)
+{
+	.container
+	{
+		grid-template-columns: 1fr;
+	}
+
+}
+@media screen and (max-width: 250px)
+{
+	.nav ul
+	{
+		flex-direction: column;
+	}
+}
+
+
+/* From here comes the code that differs */
+
+.main{
+	background-color: #ededed;
+	padding: 3%;
+}
+
+.buttons0{
+	background-color: rgba(250, 246, 237, 255);
+	background-position: center;
+	background-size: cover;
+	bottom: 0;
+	padding: 3%;
+	grid-column: 2;
+	grid-row: 3;
+	text-align: center;
+	border: 0.5px solid black;
+}
+
+.dropbtn {
+	background-color: #40804dc4;;
+	color: white;
+	padding: 16px;
+	font-size: 1.5vmin;
+	border: none ;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 2vmin;
+  }
+  
+  .dropdown {
+	position: relative;
+	display: inline-block;
+  }
+  
+  .dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+  }
+  
+  .dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.button_addto{
+	padding: 10px;
+	background: #40804dc4;
+	color: #FFFFFF;
+	text-decoration: none;
+	display: inline-block;
+	border-radius: 10px;
+	transition: background 0.5s;
+	cursor: pointer;
+	color: rgb(255, 255, 255);
+	font-size: 1.5vmin;
+}
+
+.button_addto:hover{
+	cursor: pointer;
+	color: rgb(209, 209, 209);
+}
+
+.buttons{
+	background-image: url(../pages/images/gombokhoz.jpeg);
+	background-position: center;
+	background-size: cover;
+	bottom: 0;
+	padding: 3%;
+	grid-column: 2;
+	grid-row: 3;
+	text-align: center;
+	border: 0.5px solid black;
+}
+.buttons a{
+	padding: 10px;
+	background: #40804dc4;
+	color: #FFFFFF;
+	text-decoration: none;
+	display: inline-block;
+	transition: background 0.5s;
+	border-radius: 10px;
+}
+.buttons a:hover{
+	cursor: pointer;
+	color: rgb(209, 209, 209);
+}
+.buttons1234{
+	padding: 10px;
+	background: #40804dc4;
+	color: #FFFFFF;
+	text-decoration: none;
+	display: inline-block;
+	border-radius: 10px;
+	transition: background 0.5s;
+	cursor: pointer;
+	color: rgb(209, 209, 209);
+}
+
+.header{
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row: 1;
+	background-image: url(../pages/images/palacsinta.jpeg);
+	background-position: center;
+	background-size: 70%;
+	bottom: 0px;
+	left: 0px;
+	border: 2px solid black;
+
+}
+
+.cont .content {
+	position: relative;
+	top: 116px;
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.5);
+	color: #f1f1f1;
+	width: 100%;
+	padding: 20px;
+	color: rgb(255, 255, 255);
+	text-shadow: 0.7px 0.5px #dadada;
+	border: 0.5px solid black;
+}
