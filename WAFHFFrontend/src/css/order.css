@@ -1,0 +1,423 @@
+body{
+	background-color: rgba(250, 246, 237, 255);
+	margin:0px;
+	color: black;
+	font-family: Georgia, Cambria, serif;
+	max-width: 100%;
+}
+.container{
+	display: grid;
+    grid-template-columns: 20% auto 20%;
+    grid-template-rows: 20% auto 8% 8%;
+}
+.header{
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row: 1;
+	background-color: #EEE8AA;
+	padding-left: 2.5%;
+	padding-right: 2.5%;
+	padding-bottom: 25px;
+	color: black;
+	text-align: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	border: 2px solid black;
+	background-image: url(../pages/images/header.jpeg);
+	background-position: center;
+	background-size: cover;
+}
+
+.nav{
+	padding: 0px;
+	margin-left: 0;
+	border-bottom: solid 2px #000000;
+}
+
+.nav ul{
+
+	list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+	padding-inline-start: 0;
+}
+
+.nav li{
+	padding: 2%;
+	margin: 2%;
+	transition: background 0.5s;
+	background-color: rgba(104,126,77,255);
+	border: solid 1px rgb(61, 61, 61);
+	border-radius: 10px;
+}
+
+
+.nav li:hover{
+	background-color: #035800;
+	border-radius: 1;
+	border-width: 2;
+	border: solid 1px #000000;
+	border-radius: 14px;
+}
+
+.aside_left{
+	border: solid #000000;
+	border-top: 0;
+	border-bottom: 0;
+	border-width: 2;
+	grid-column: 1;
+	grid-row-start: 2;
+	grid-row-end: 4;
+	background-color: #b18256;
+}
+
+.aside_right{
+	border: solid #000000;
+	border-top: 0;
+	border-bottom: 0;
+	border-width: 2;
+	grid-column: 3 ;
+	grid-row-start: 2;
+	grid-row-end: 4;
+	background-color: #b18256;
+	padding: 4%;
+}
+
+.adverts_left{
+	color: black;
+	padding: 2%;
+	margin: 2%;
+}
+.adverts_right{
+
+	border-top: solid 2px #000000;
+	padding: 2%;
+	
+}
+.offer{
+	border-bottom: 2px #000000;
+	margin: 2%;
+	padding: 2%;
+}
+
+.foot_cpr{
+	bottom:0;
+}
+
+.admins{
+	color: black;
+	padding: 4%;
+
+	border-bottom: solid 2px #000000;
+}
+.admins ul{
+	margin-inline-start: 0;
+	padding-inline-start: 0;
+	list-style-type: none;
+}
+
+.admins li{
+	margin-inline-start: 0;
+}
+.nav a{
+	color:#FFFFFF;
+	text-decoration: none;
+    text-transform: uppercase;
+}
+
+.cover{
+	text-shadow: 2px 2px #dadada;
+	width: 80%;
+	height: 80%;
+	flex: content;
+	color: #232323;
+	margin: 3%;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.cover_img{
+	border:solid 5px #000000;
+	box-shadow: 5px 5px ;
+	width: 80%;
+	height: 80%;
+}
+
+.cover img{
+	border:solid 4px #000000;
+	box-shadow: 5px 5px ;
+    border-radius: 4px;
+	width: 80%;
+	height: 80%;
+}
+
+.aside_left img{
+	max-width: 100%;
+	border-radius: 5px;
+	box-shadow: 2px 2px #343434;
+}
+.aside_right img{
+	max-width: 100%;
+	border-radius: 5px;
+	box-shadow: 2px 2px #343434;
+}
+
+
+.sum{
+	font-style: italic;
+}
+
+.footer{
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row: 4;
+	padding: 2%;
+	font-size: 1.1rem;
+	font-weight: bold;
+	color:#000000;
+	background-image: url(../pages/images/borito.jpeg);
+	background-position: center;
+	background-size: 95%;
+	border-top: 2px solid black;
+  	width: 100%;
+  	bottom: 0px;
+  	left: 0px;
+	background-color: #ffffff;
+	display: flex; 
+	flex-direction: row;
+	justify-content: center;
+}
+.foot_cpr{
+	color: #000000;
+	position: center;
+	padding-left: 25%;
+	padding-right: 22%;
+	color: rgb(224, 226, 173);
+	text-shadow: 2px 1px #575757;
+}
+
+footer .foot_youtube{
+	color:#a40909;
+	padding: 0.25%;
+}
+
+footer .foot_face{
+	color:#1779b1;
+	padding: 0.5%;
+}
+
+.random_offer{
+	padding: 3%;
+}
+
+.random_offer p{
+	color:rgb(255,255,255)
+}
+
+.random_offer a{
+	width: 90%;
+	margin: 3%;
+	padding: 3%;
+	background: rgba(104,126,77,255);
+	color: #FFFFFF;
+	text-decoration: none;
+	display: inline-block;
+	border-radius: 10px;
+	transition: background 0.5s;
+	text-align: center;
+}
+.random_offer a:hover{
+	cursor: pointer;
+
+	background: #035800;
+	box-shadow: 2px 2px #575757;
+}
+@media screen and (max-width: 500px)
+{
+	.container
+	{
+		grid-template-columns: 1fr;
+	}
+
+}
+@media screen and (max-width: 250px)
+{
+	.nav ul
+	{
+		flex-direction: column;
+	}
+}
+
+
+/* From here comes the code that differs */
+
+.main{
+	grid-row: 2;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	padding: 20px;
+	margin: 10px;
+}
+
+
+.main a{
+	width: 10%;
+	height: 10%;
+	border: solid 0.5px #000000;
+	padding: 1%;
+	border-radius: 6px;
+	position: center;
+}
+
+.recipe_list div{
+	overflow: auto;
+	display: grid;
+	min-height: 30vh;
+	max-height: 30vh;
+	grid-template-columns: 35% auto 25%;
+    grid-template-rows: 25% 25% 50%;
+	margin: 4%;
+}
+
+.recipe_list div h1{
+	grid-column-start: 2;
+	grid-column-end: 4;
+	grid-row: 1;
+	text-align: center;
+	margin: 3%;
+	background-color: rgba(255,255,255, 0.5);
+	
+	border: solid 2px #000000;
+	border-radius: 6px;
+}
+
+.recipe_list div h2{
+	
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row: 2;
+
+	text-align: center;
+}
+
+.recipe_list div img{
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start:1 ;
+	grid-row-end: 4;
+	max-width: 90%;
+	max-height: 90%;
+	height: auto;
+	width: auto;
+	margin: 2%;
+	object-fit: cover;
+	size: cover;
+}
+
+.recipe_list div p{
+	grid-column: 2;
+	grid-row: 3;
+	text-align: center;
+}
+
+
+
+.recipe_list div button{
+	grid-column: 3;
+	grid-row: 2;
+	padding: 2%;
+	margin: 5%;
+	background-color: rgba(255,255,255, 0.5);
+	border: solid 2px black;
+	border-radius: 10px;
+}
+
+.recipe_list div button:active{
+	box-shadow: 2px 2px black;
+	background-color: #750000;
+	color: white;
+}
+
+.recipe_list div button:hover{
+	font-style: bold;
+	background-color: rgba(204, 0, 0, 0.5);
+	color: white;
+}
+
+.recipe_list div button{
+	background-color: rgba(255, 255, 255, 0.5);
+	color: black;
+	font-style: bold;
+	
+}
+
+.recipe_list div a{
+	grid-column: 3;
+	grid-row: 3;
+	background-color: rgba(255,255,255, 0.5);
+	padding: 20%;
+	margin: 10%;
+	padding-inline-start: 10%;
+	padding-inline-end: 10%;
+	text-align: center;
+	border: solid 2px black;
+	border-radius: 10%;
+}
+
+.recipe_list div a:hover{
+	background-color: rgba(204, 0, 0, 0.5);
+	color: white;
+	font-style: bold;
+}
+.recipe_list div a:active{
+	box-shadow: 2px 2px black;
+	background-color: #750000;
+	color: white;
+	
+}
+
+.recipe_list div h2{
+	font-size: medium;
+}
+
+.recipe_list div a{
+	font-size: small;	
+}
+
+.buttons{
+	background-image: url(../pages/images/gombokhoz.jpeg);
+	background-position: center;
+	background-size: cover;
+	bottom: 0;
+	padding: 3%;
+	grid-column: 2;
+	grid-row: 3;
+	text-align: center;
+	border: 0.5px solid black;
+}
+.buttons a{
+	padding: 10px;
+	background: #40804dc4;
+	color: #FFFFFF;
+	text-decoration: none;
+	display: inline-block;
+	transition: background 0.5s;
+	border-radius: 10px;
+}
+.buttons a:hover{
+	cursor: pointer;
+	color: rgb(209, 209, 209);
+}
+.buttons1234{
+	padding: 10px;
+	background: #40804dc4;
+	color: #FFFFFF;
+	text-decoration: none;
+	display: inline-block;
+	border-radius: 10px;
+	transition: background 0.5s;
+	cursor: pointer;
+	color: rgb(209, 209, 209);
+}
