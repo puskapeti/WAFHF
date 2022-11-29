@@ -15,7 +15,7 @@ class UserDetailsProvider(
 ):UserDetailsService {
     override fun loadUserByUsername(username: String?): UserDetails {
         if(username == null) throw UsernameNotFoundException("")
-        var currentUser: User = userRepository.findByusername(username)
+        val currentUser: User = userRepository.findByUsername(username)
         return org.springframework.security.core.userdetails.User(username,currentUser.password,
                 true,true,true,true, AuthorityUtils.createAuthorityList(currentUser.role))
 

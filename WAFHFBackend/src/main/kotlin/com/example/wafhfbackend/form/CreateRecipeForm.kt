@@ -1,17 +1,20 @@
 package com.example.wafhfbackend.form
 
 import com.example.wafhfbackend.entities.Recipe
+import com.example.wafhfbackend.entities.User
 
 class CreateRecipeForm {
+    var id: Long? = null
     var recipeName: String = ""
-    val ingredients: MutableList<String> = mutableListOf()
-    val steps: MutableList<String> = mutableListOf()
+    var ingredients: MutableList<String> = mutableListOf()
+    var steps: MutableList<String> = mutableListOf()
+    var user: User? = null
 
     override fun toString(): String {
         return "Recipe: $recipeName, ingredients: $ingredients, steps: $steps"
     }
 
     fun toRecipe(): Recipe {
-        return Recipe(name = recipeName, ingredients = ingredients.toSet(), steps = steps.toSet())
+        return Recipe(recipeId = id, name = recipeName, ingredients = ingredients.toMutableSet(), steps = steps.toMutableSet(), author = user!!)
     }
 }

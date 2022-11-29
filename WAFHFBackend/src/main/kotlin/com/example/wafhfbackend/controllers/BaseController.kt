@@ -2,7 +2,7 @@ package com.example.wafhfbackend.controllers
 
 import com.example.wafhfbackend.form.CreateRecipeForm
 import com.example.wafhfbackend.form.CreateUserForm
-import com.example.wafhfbackend.repositories.RecipeRepository
+import com.example.wafhfbackend.services.RecipeManager
 import com.example.wafhfbackend.services.UserManager
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.*
 import javax.servlet.http.HttpServletRequest
 
 @Controller
-class BaseController(@Autowired private val userManager: UserManager, @Autowired private val recipeRepository: RecipeRepository) {
+class BaseController(
+    @Autowired private val userManager: UserManager,
+    @Autowired private val recipeManager: RecipeManager,
+) {
     @GetMapping("/")
     fun showIndex(model: Model): String {
         return "index"
@@ -39,18 +42,68 @@ class BaseController(@Autowired private val userManager: UserManager, @Autowired
         return "register"
     }
 
-    @PostMapping("/registerUser")
+    @PostMapping("/register")
     fun registerUser(createUserForm: CreateUserForm, model: Model): String {
-        userManager.addUser(createUserForm)
+        val user = userManager.addUser(createUserForm)
+        println("Registered user: $user")
         println(createUserForm.toString())
         return "registerSuccessful"
     }
 
     @GetMapping("/recipes")
     fun getRecipes(model: Model): String {
-        println(recipeRepository.findAll())
-        model.addAttribute("recipes", recipeRepository.findAll())
+        val recipes = recipeManager.getAllRecipes()
+        model.addAttribute("recipes", recipes)
         return "recipes"
+    }
+
+    @GetMapping("/myRecipes")
+    fun getMyRecipes(model: Model, httpServletRequest: HttpServletRequest): String {
+        val recipes = recipeManager.getRecipesOfUser(httpServletRequest.remoteUser)
+        model.addAttribute("recipes", recipes)
+
+        return "myRecipes"
+    }
+
+    @GetMapping("recipes/edit/{id}")
+    fun getUpdateRecipeForm(@PathVariable id: String, model: Model, httpServletRequest: HttpServletRequest): String {
+
+        val username = httpServletRequest.remoteUser
+        val user = userManager.findUserByUsername(username)
+
+        val recipe = recipeManager.getRecipeById(id.toLong()) ?: return "index"
+
+        if (recipe.author != user) return "login"
+
+        val updateRecipeForm = CreateRecipeForm().also { form ->
+            form.id = recipe.recipeId
+            form.recipeName = recipe.name
+            form.ingredients = recipe.ingredients.toMutableList()
+            form.steps = recipe.steps.toMutableList()
+            form.user = user
+        }
+
+        model.addAttribute("updateRecipeForm", updateRecipeForm)
+        model.addAttribute("user", user)
+
+        return "editRecipe"
+    }
+
+    @PostMapping("recipes/edit/{id}")
+    fun updateRecipe(
+        @PathVariable id: String,
+        updateRecipeForm: CreateRecipeForm,
+        httpServletRequest: HttpServletRequest
+    ): String {
+
+        val user = userManager.findUserByUsername(httpServletRequest.remoteUser)
+
+        updateRecipeForm.user = user
+        val recipe = updateRecipeForm.toRecipe()
+
+        recipeManager.updateRecipe(recipe, id.toLong(), user)
+
+        return "redirect:/recipes"
     }
 
     @GetMapping("/recipes/create")
@@ -59,10 +112,7 @@ class BaseController(@Autowired private val userManager: UserManager, @Autowired
         return "createRecipe"
     }
 
-    @PostMapping(
-        "/recipes/create",
-
-    )
+    @PostMapping("/recipes/create")
     fun createRecipe(
         model: Model,
         createRecipeForm: CreateRecipeForm? = null,
@@ -70,6 +120,7 @@ class BaseController(@Autowired private val userManager: UserManager, @Autowired
         @RequestParam(name = "removeIngredient", required = false) removeIngredient: String? = null,
         @RequestParam(name = "addStep", required = false) addStep: String? = null,
         @RequestParam(name = "removeStep", required = false) removeStep: String? = null,
+        httpServletRequest: HttpServletRequest
     ): String {
         if (createRecipeForm == null) {
             model.addAttribute("createRecipeForm", CreateRecipeForm())
@@ -96,14 +147,20 @@ class BaseController(@Autowired private val userManager: UserManager, @Autowired
             return "createRecipe"
         }
 
-        recipeRepository.save(createRecipeForm.toRecipe())
+        // get user
+        val username = httpServletRequest.remoteUser
+        val user = userManager.findUserByUsername(username)
+
+        createRecipeForm.user = user
+
+        recipeManager.saveRecipe(createRecipeForm.toRecipe())
 
         return "redirect:/recipes"
     }
 
     @GetMapping("/recipes/delete/{id}")
     fun deleteRecipe(@PathVariable id: String): String {
-        recipeRepository.deleteById(id.toLong())
+        recipeManager.deleteRecipe(id.toLong())
         return "redirect:/recipes"
     }
 

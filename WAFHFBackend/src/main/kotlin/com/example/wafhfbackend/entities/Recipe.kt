@@ -7,13 +7,16 @@ class Recipe(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val recipeId: Long? = null,
-    val name: String,
+    var name: String,
+    @ManyToOne
+    @JoinColumn(name = "userId", nullable = false)
+    val author: User?,
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "recipe_ingredients", joinColumns = [JoinColumn(name = "recipeId")])
-    val ingredients: Set<String>,
+    var ingredients: MutableSet<String>,
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "recipe_steps", joinColumns = [JoinColumn(name = "recipeId")])
-    val steps: Set<String>,
+    var steps: MutableSet<String>,
 ) {
     override fun toString(): String {
         return "Recipe[$recipeId]: $name, ingredients: $ingredients, steps: $steps"

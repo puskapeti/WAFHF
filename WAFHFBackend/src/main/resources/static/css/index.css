@@ -24,7 +24,7 @@ body{
 	display: flex;
 	flex-direction: column;
 	border: 2px solid black;
-	background-image: url(../pages/images/header.jpeg);
+	background-image: url(templates/images/header.jpeg);
 	background-position: center;
 	background-size: cover;
 }
@@ -178,20 +178,19 @@ body{
 	font-size: 1.1rem;
 	font-weight: bold;
 	color:#000000;
-	background-image: url(../pages/images/borito.jpeg);
+	background-image: url(static/images/borito.jpeg);
 	background-position: center;
 	background-size: 95%;
 	border-top: 2px solid black;
   	width: 100%;
-  	bottom: 0px;
-  	left: 0px;
+  	bottom: 0;
+  	left: 0;
 	background-color: #ffffff;
 	display: flex; 
 	flex-direction: row;
 	justify-content: center;
 }
 .foot_cpr{
-	color: #000000;
 	position: center;
 	padding-left: 25%;
 	padding-right: 22%;
@@ -259,7 +258,7 @@ footer .foot_face{
 	border: solid 2px #000000;
 	border-radius: 5px;
 	align-self: center;
-	background-image: url(../pages/images/wood.jpg);
+	background-image: url(templates/images/wood.jpg);
 }
 
 
@@ -352,7 +351,7 @@ footer .foot_face{
 }
 
 .buttons{
-	background-image: url(../pages/images/gombokhoz.jpeg);
+	background-image: url(templates/images/gombokhoz.jpeg);
 	background-position: center;
 	background-size: cover;
 	bottom: 0;

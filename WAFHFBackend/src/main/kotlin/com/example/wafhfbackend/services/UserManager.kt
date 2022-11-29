@@ -14,12 +14,20 @@ class UserManager(@Autowired val userRepository: UserRepository, @Autowired val 
         if(userForm.username != null &&
                 userForm.email!=null &&
                 userForm.password!=null) {
-            return userRepository.save(User(userForm.username!!,
-                    userForm.email!!,
-                    encoder.encode(userForm.password!!),
-                    "ROLE_USER"))
+            return userRepository.save(
+                User(
+                    username = userForm.username!!,
+                    email = userForm.email!!,
+                    password = encoder.encode(userForm.password!!),
+                    role = "ROLE_USER",
+                )
+            )
         }
         return null
+    }
+
+    fun findUserByUsername(name: String): User {
+        return userRepository.findByUsername(name)
     }
 
 }
