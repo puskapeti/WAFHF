@@ -1,11 +1,12 @@
 package com.example.wafhfbackend
 
+import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class WafhfBackendApplication
+class BackendApplication
 
 fun main(args: Array<String>) {
-    runApplication<WafhfBackendApplication>(*args)
+    runApplication<BackendApplication>(*args)
 }
