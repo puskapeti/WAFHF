@@ -1,7 +1,5 @@
 package com.example.wafhfbackend.entities
 
-import java.sql.Time
-import java.time.LocalTime
 import javax.persistence.*
 
 @Entity

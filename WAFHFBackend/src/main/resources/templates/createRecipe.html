@@ -56,7 +56,7 @@
             <br>
             <div th:each="step, status : ${createRecipeForm.steps}" class="input-group my-1">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend" th:text="*{__${status.index}__ + 1}"></span>
+                    <span class="input-group-text" id="inputGroupPrepend" th:text="*{__${status.index}__}"></span>
                 </div>
                 <label>
                     <input class="form-control" th:field="*{steps[__${status.index}__]}">

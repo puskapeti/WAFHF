@@ -25,13 +25,13 @@
         <section>
             <div th:each="recipe : ${recipes}">
                 <h1 th:text="${recipe.name}">Hétfő</h1>
-                <img src="images/pancake.jpeg" title="food_img"/>
+                <img th:src="@{images/pancake.jpeg}" title="food_img"/>
                 <a th:href="@{'/recipes/' + ${recipe.recipeId}}">Elkészítem</a>
                 <a th:href="@{'/recipes/edit/' + ${recipe.recipeId}}">Módosítás</a>
-                <a th:href="@{'/recipes/delete/' + ${recipe.recipeId}}">Törlés</a>
+                <form th:action="@{'/recipes/delete/' + ${recipe.recipeId}}" method="post">
+                    <button type="submit">Törlés</button>
+                </form>
             </div>
-
-
         </section>
 
     </main>
