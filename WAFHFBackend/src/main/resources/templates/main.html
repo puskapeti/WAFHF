@@ -1,0 +1,52 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Főoldal</title>
+	<link rel="stylesheet" th:href="@{/css/main.css}">
+	<meta name="viewport" content="width=device-width? initial-scale=1.0" />
+</head>
+<body>
+	<div class="container">
+
+		<header th:replace="fragments :: header"></header>
+
+		<aside th:replace="fragments :: aside_left"></aside>
+
+		<aside th:replace="fragments :: aside_right"></aside>
+
+		<footer th:replace="fragments :: footer"></footer>
+
+		<!--From here comes the code that differs -->
+		<main class="main">	
+			
+			<section class="recipe_list">
+
+				<div th:each="recipe : ${recipes}">
+					<p class="name" th:text="${recipe.name}"></p>
+					<p th:text="${recipe.description}"></p>
+				</div>
+			</section>
+
+		</main>
+
+        <section class="buttons">
+			<p>
+				<div class="buttons1234" role="group" aria-label="First group">
+					<button type="button1" class="btn btn-primary">1</button>
+					<button type="button2" class="btn btn-primary">2</button>
+					<button type="button3" class="btn btn-primary">3</button>
+					<button type="button4" class="btn btn-primary">4</button>
+					...
+					<button type="buttonlast" class="btn btn-primary"> &#10145;</button>
+				</div>
+				
+				<a href="#">Ugrás a lap tetejére &uarr; </a>
+			</p>
+		</section>
+	</div>
+</body>
+</html>
+

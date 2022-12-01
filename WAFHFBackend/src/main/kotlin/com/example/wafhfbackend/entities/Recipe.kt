@@ -1,5 +1,7 @@
 package com.example.wafhfbackend.entities
 
+import java.sql.Time
+import java.time.LocalTime
 import javax.persistence.*
 
 @Entity
@@ -8,6 +10,7 @@ class Recipe(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val recipeId: Long? = null,
     var name: String,
+    var description: String,
     @ManyToOne
     @JoinColumn(name = "userId", nullable = false)
     val author: User?,
@@ -19,6 +22,6 @@ class Recipe(
     var steps: MutableSet<String>,
 ) {
     override fun toString(): String {
-        return "Recipe[$recipeId]: $name, ingredients: $ingredients, steps: $steps"
+        return "Recipe[$recipeId]: $name, $description | ingredients: $ingredients, steps: $steps"
     }
 }

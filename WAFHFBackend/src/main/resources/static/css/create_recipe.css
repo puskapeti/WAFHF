@@ -14,12 +14,19 @@ body{
 	grid-column-start: 1;
 	grid-column-end: 4;
 	grid-row: 1;
-	background-image: url(../pages/images/palacsinta.jpeg);
-	background-position: center;
-	background-size: 100%;
-	bottom: 0px;
-	left: 0px;
+	background-color: #EEE8AA;
+	padding-left: 2.5%;
+	padding-right: 2.5%;
+	padding-bottom: 25px;
+	color: black;
+	text-align: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
 	border: 2px solid black;
+	background-image: url(../pages/images/header.jpeg);
+	background-position: center;
+	background-size: cover;
 }
 
 .cover{
@@ -242,76 +249,114 @@ footer .foot_face{
 /* From here comes the code that differs */
 
 .main{
-	background-color: #ededed;
-	padding: 3%;
+	grid-row: 2;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	position: relative;
+	padding: 20px;
+	margin: 10px;
 }
 
-.buttons0{
-	background-color: rgba(250, 246, 237, 255);
-	background-position: center;
-	background-size: cover;
-	bottom: 0;
-	padding: 3%;
+
+.main div{
+	width: 90%;
+	height: 20%;
+	box-shadow: 2px 2px #343434;
+	border: solid 2px #000000;
+	border-radius: 5px;
+	align-self: center;
+	background-image: url(../pages/images/wood.jpg);
+}
+
+
+.recipe_list div{
+	overflow: auto;
+	display: grid;
+	min-height: 30vh;
+	max-height: 30vh;
+	grid-template-columns: 35% auto 25%;
+    grid-template-rows: 25% 25% 50%;
+	margin: 4%;
+}
+
+.recipe_list div p.name{
+	grid-column-start: 2;
+	grid-column-end: 4;
+	grid-row: 1;
+	text-align: center;
+	margin: 3%;
+	background-color: rgba(255,255,255, 0.5);
+	font-size: 2vw;
+	border: solid 2px #000000;
+	border-radius: 6px;
+	font-size: 2.5vmin;
+	padding: 1%;
+}
+
+.recipe_list div p.prep_time{
+	
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row: 2;
+	font-size: 1.4vw;
+	text-align: center;
+}
+
+.recipe_list div img{
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start:1 ;
+	grid-row-end: 4;
+	max-width:	15vw;
+	max-height: 90%;
+	height: auto;
+	width: auto;
+	margin: 2%;
+	object-fit: cover;
+	size: cover;
+}
+
+.recipe_list div p.rec_info{
 	grid-column: 2;
 	grid-row: 3;
 	text-align: center;
-	border: 0.5px solid black;
-}
-
-.dropbtn {
-	background-color: #40804dc4;;
-	color: white;
-	padding: 16px;
-	font-size: 1.5vmin;
-	border: none ;
-	border-radius: 10px;
-	text-align: center;
 	font-size: 2vmin;
-  }
-  
-  .dropdown {
-	position: relative;
-	display: inline-block;
-  }
-  
-  .dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: #f1f1f1;
-	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	z-index: 1;
-  }
-  
-  .dropdown-content a {
-	color: black;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-  }
-  
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  .dropdown:hover .dropbtn {background-color: #3e8e41;}
-
-.button_addto{
-	padding: 10px;
-	background: #40804dc4;
-	color: #FFFFFF;
-	text-decoration: none;
-	display: inline-block;
-	border-radius: 10px;
-	transition: background 0.5s;
-	cursor: pointer;
-	color: rgb(255, 255, 255);
-	font-size: 1.5vmin;
 }
 
-.button_addto:hover{
-	cursor: pointer;
-	color: rgb(209, 209, 209);
+
+
+.recipe_list div a{
+	color: black;
+	grid-column: 3;
+	grid-row: 3;
+	background-color: rgba(255,255,255, 0.5);
+	padding: 5%;
+	margin: 10%;
+	padding-inline-start: 10%;
+	padding-inline-end: 10%;
+	text-align: center;
+	border: solid 2px black;
+	border-radius: 10%;
+}
+
+.recipe_list div a:hover{
+	background-color: #40804dc4;
+	color: white;
+	font-style: bold;
+}
+.recipe_list div a:active{
+	box-shadow: 2px 2px black;
+	background-color: #589f66c4;
+	color: white;
+	
+}
+
+.recipe_list div h2{
+	font-size: medium;
+}
+
+.recipe_list div a{
+	font-size: small;	
 }
 
 .buttons{
@@ -333,6 +378,7 @@ footer .foot_face{
 	display: inline-block;
 	transition: background 0.5s;
 	border-radius: 10px;
+	
 }
 .buttons a:hover{
 	cursor: pointer;
@@ -350,31 +396,78 @@ footer .foot_face{
 	color: rgb(209, 209, 209);
 }
 
-.header{
-	grid-column-start: 1;
-	grid-column-end: 4;
-	grid-row: 1;
-	background-image: url(../pages/images/pancake.jpeg);
-	background-position: center;
-	background-size: 100%;
-	bottom: 0px;
-	left: 0px;
-	border: 2px solid black;
-
+.recipe_list div button{
+	grid-column: 3;
+	grid-row: 2;
+	padding: 2%;
+	margin: 5%;
+	background-color: rgba(255,255,255, 0.5);
+	border: solid 2px black;
+	border-radius: 10px;
 }
 
-.cont .content {
-	background: rgb(0, 0, 0);
-	background: rgba(0, 0, 0, 0.5);
-	color: #f1f1f1;
+.recipe_list div button:active{
+	box-shadow: 2px 2px black;
+	background-color: #589f66c4;
+	color: white;
+}
+
+.recipe_list div button:hover{
+	font-style: bold;
+	background-color: #40804dc4;
+	color: white;
+}
+
+.recipe_list div button{
+	background-color: rgba(255, 255, 255, 0.5);
+	color: black;
+	font-style: bold;
+	
+}
+
+.recipe_list div .dropbtn {
+	font-size: 1,5vmin;
+	height: 100%;
 	width: 100%;
-	padding: 20px;
-	color: rgb(255, 255, 255);
-	text-shadow: 0.7px 0.5px #dadada;
-	border: 0.5px solid black;
+	text-align: center;
+	background-color: rgba(255,255,255, 0.5);
+	border: solid 2px black;
+	border-radius: 10px;
+	padding: 0%;
+	margin: 0%;
 }
-
-.cont {
-	grid-row-start: 1;
-	grid-column-end: 2;
+  
+.recipe_list div .dropdown {
+	all: initial;
+	padding-inline-end: 2vmin;
+	grid-column: 3;
+	grid-row: 2;
+	margin: 0;
 }
+  
+.recipe_list div .dropdown-content {
+	all: initial;
+	margin: 0;
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+  
+.recipe_list div .dropdown-content a {
+	all:initial;
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+  
+  .recipe_list div .dropdown-content a:hover {
+	margin: 0;
+	background-color: #035800;}
+  
+  .recipe_list div .dropdown:hover .dropdown-content {display: block;}
+  
+  .recipe_list div .dropdown:hover .dropbtn {background-color: #40804dc4;}

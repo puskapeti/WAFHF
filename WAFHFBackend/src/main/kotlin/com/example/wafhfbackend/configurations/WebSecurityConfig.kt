@@ -14,27 +14,29 @@ class WebSecurityConfig {
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http.authorizeRequests()
-                .antMatchers("/", "/register","/registerUser","/admin").permitAll()
-                .antMatchers("/css/**").permitAll()
-                .antMatchers("/admin").hasAnyRole("ADMIN")
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/home",true)
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll()
-                .and()
-                .exceptionHandling()
-                .accessDeniedPage("/error")
-                .and()
+            .mvcMatchers("/", "/home", "/register", "/registerUser", "/admin").permitAll()
+            .mvcMatchers("/recipes/**").permitAll()
+            .mvcMatchers("/recipes/edit/**", "/recipes/delete/**").authenticated()
+            .mvcMatchers("/css/**", "/images/**").permitAll()
+            .mvcMatchers("/admin").hasAnyRole("ADMIN")
+            .anyRequest().authenticated()
+            .and()
+            .formLogin()
+            .loginPage("/login")
+            .defaultSuccessUrl("/home", true)
+            .permitAll()
+            .and()
+            .logout()
+            .permitAll()
+            .and()
+            .exceptionHandling()
+            .accessDeniedPage("/error")
+            .and()
         return http.build()
     }
 
     @Bean
-    fun passwordEncoder():PasswordEncoder{
+    fun passwordEncoder(): PasswordEncoder {
         return BCryptPasswordEncoder()
     }
 }

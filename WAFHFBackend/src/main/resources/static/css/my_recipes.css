@@ -14,12 +14,19 @@ body{
 	grid-column-start: 1;
 	grid-column-end: 4;
 	grid-row: 1;
-	background-image: url(../pages/images/palacsinta.jpeg);
-	background-position: center;
-	background-size: 100%;
-	bottom: 0px;
-	left: 0px;
+	background-color: #EEE8AA;
+	padding-left: 2.5%;
+	padding-right: 2.5%;
+	padding-bottom: 25px;
+	color: black;
+	text-align: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
 	border: 2px solid black;
+	background-image: url(../pages/images/header.jpeg);
+	background-position: center;
+	background-size: cover;
 }
 
 .cover{
@@ -242,77 +249,130 @@ footer .foot_face{
 /* From here comes the code that differs */
 
 .main{
-	background-color: #ededed;
-	padding: 3%;
+	grid-row: 2;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	position: relative;
+	padding: 20px;
+	margin: 10px;
 }
 
-.buttons0{
-	background-color: rgba(250, 246, 237, 255);
-	background-position: center;
+
+.main div{
+	width: 90%;
+	height: 20%;
+	box-shadow: 2px 2px #343434;
+	border: solid 2px #000000;
+	border-radius: 5px;
+	align-self: center;
+	background-image: url(../pages/images/wood.jpg);
+}
+
+.weekdays div{
+	overflow: auto;
+	display: grid;
+	min-height: 30vh;
+	max-height: 30vh;
+	grid-template-columns: 35% auto 25%;
+    grid-template-rows: 25% 25% 25% 25%;
+	margin: 2vw;
+}
+
+.weekdays div h1 span{
+	grid-column-start: 2;
+	grid-column-end: 4;
+	grid-row: 1;
+	padding-left: 20%;
+	padding-right: 20%;
+	background-color: rgba(255,255,255, 0.5);
 	background-size: cover;
-	bottom: 0;
-	padding: 3%;
+	border: solid 2px #000000;
+	border-radius: 6px;
+}
+
+.weekdays div h1{
+	grid-column-start: 2;
+	grid-column-end: 4;
+	grid-row: 1;
+	text-align: center;
+	margin: 3%;
+	font-size: 2.5vw;
+}
+
+.weekdays div p.name{
+	padding: 2%;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row: 2;
+	margin: 5%;
+	text-align: center;
+}
+
+.weekdays div img{
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start:1 ;
+	grid-row-end: 4;
+	max-width:	15vw;
+	max-height: 90%;
+	height: auto;
+	width: auto;
+	margin: 2%;
+	object-fit: cover;
+	size: cover;
+}
+
+.weekdays div p.prep_time{
+	margin:5%;
 	grid-column: 2;
 	grid-row: 3;
 	text-align: center;
-	border: 0.5px solid black;
+	font-size: 1.5vw;
 }
 
-.dropbtn {
-	background-color: #40804dc4;;
-	color: white;
-	padding: 16px;
-	font-size: 1.5vmin;
-	border: none ;
-	border-radius: 10px;
+.weekdays div a{
+	background-color: rgba(255,255,255, 0.5);
+    padding: 3%;
+    margin: 6%;
 	text-align: center;
-	font-size: 2vmin;
-  }
-  
-  .dropdown {
-	position: relative;
-	display: inline-block;
-  }
-  
-  .dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: #f1f1f1;
-	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	z-index: 1;
-  }
-  
-  .dropdown-content a {
-	color: black;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-  }
-  
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  .dropdown:hover .dropbtn {background-color: #3e8e41;}
-
-.button_addto{
-	padding: 10px;
-	background: #40804dc4;
-	color: #FFFFFF;
-	text-decoration: none;
-	display: inline-block;
-	border-radius: 10px;
-	transition: background 0.5s;
-	cursor: pointer;
-	color: rgb(255, 255, 255);
-	font-size: 1.5vmin;
+    border: solid 2px black;
+    border-radius: 10%;
+}
+.mod{
+	grid-column: 3;
+	grid-row: 3;
+}
+.del{
+	grid-column: 3;
+	grid-row: 4;
 }
 
-.button_addto:hover{
-	cursor: pointer;
-	color: rgb(209, 209, 209);
+.weekdays div a:hover{
+	background-color: #40804dc4;
+	color: white;
+	font-style: bold;
 }
+
+.recipe_list div{
+	overflow: auto;
+	display: grid;
+	min-height: 30vh;
+	max-height: 30vh;
+	grid-template-columns: 35% auto 25%;
+    grid-template-rows: 25% 25% 50%;
+	margin: 4%;
+}
+
+.weekdays div a:active{
+	background-color: #589f66c4;
+	color: white;
+	font-style: bold;
+}
+
+.main p.name{
+	font-size: 2.5vw;
+}
+
 
 .buttons{
 	background-image: url(../pages/images/gombokhoz.jpeg);
@@ -350,31 +410,31 @@ footer .foot_face{
 	color: rgb(209, 209, 209);
 }
 
-.header{
-	grid-column-start: 1;
-	grid-column-end: 4;
-	grid-row: 1;
-	background-image: url(../pages/images/pancake.jpeg);
-	background-position: center;
-	background-size: 100%;
-	bottom: 0px;
-	left: 0px;
-	border: 2px solid black;
-
+.buttonmod{
+	color:#FFFFFF;
+	text-decoration: none;
+    text-transform: uppercase;
+	margin-inline-start: 0;
+	padding-inline-start: 0;
+	list-style-type: none;
+	padding: 1%;
+	margin: 2%;
+	border: #575757;
+	transition: background 0.5s;
+	background-color: rgba(104,126,77,255);
+	border: solid 1px rgb(61, 61, 61);
+	border-radius: 10px;
+	font-size: 2.2vmin;
 }
 
-.cont .content {
-	background: rgb(0, 0, 0);
-	background: rgba(0, 0, 0, 0.5);
-	color: #f1f1f1;
-	width: 100%;
-	padding: 20px;
-	color: rgb(255, 255, 255);
-	text-shadow: 0.7px 0.5px #dadada;
-	border: 0.5px solid black;
+main.p{
+text-align: center;
 }
 
-.cont {
-	grid-row-start: 1;
-	grid-column-end: 2;
+.buttonmod:hover{
+	background-color: #035800;
+	border-radius: 1;
+	border-width: 2;
+	border: solid 1px #000000;
+	border-radius: 14px;
 }

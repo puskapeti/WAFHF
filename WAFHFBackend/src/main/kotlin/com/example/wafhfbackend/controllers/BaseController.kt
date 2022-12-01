@@ -17,13 +17,16 @@ class BaseController(
 ) {
     @GetMapping("/")
     fun showIndex(model: Model): String {
-        return "index"
+        val recipes = recipeManager.getAllRecipes()
+        println(recipes)
+        model.addAttribute("recipes", recipes)
+        return "main"
     }
 
     @GetMapping("/home")
     fun showHome(model: Model, httpServletRequest: HttpServletRequest): String {
         println(httpServletRequest.remoteUser)
-        return "index"
+        return "redirect:/"
     }
 
     @GetMapping("/admin")
@@ -34,6 +37,14 @@ class BaseController(
     @GetMapping("/login")
     fun loginUser(model: Model): String {
         return "login"
+    }
+
+    @GetMapping("/recipes/{id}")
+    fun getRecipeDetail(@PathVariable id: String, model: Model): String {
+        val recipe = recipeManager.getRecipeById(id.toLong())
+        model.addAttribute("recipe", recipe)
+
+        return "recipeDetail"
     }
 
     @GetMapping("/register")
@@ -50,13 +61,6 @@ class BaseController(
         return "registerSuccessful"
     }
 
-    @GetMapping("/recipes")
-    fun getRecipes(model: Model): String {
-        val recipes = recipeManager.getAllRecipes()
-        model.addAttribute("recipes", recipes)
-        return "recipes"
-    }
-
     @GetMapping("/myRecipes")
     fun getMyRecipes(model: Model, httpServletRequest: HttpServletRequest): String {
         val recipes = recipeManager.getRecipesOfUser(httpServletRequest.remoteUser)
@@ -65,13 +69,30 @@ class BaseController(
         return "myRecipes"
     }
 
+    @DeleteMapping("/recipes/delete/{id}")
+    fun deleteRecipe(@PathVariable id: String, httpServletRequest: HttpServletRequest): String {
+        val username = httpServletRequest.remoteUser
+        val user = userManager.findUserByUsername(username)
+
+        val referer = httpServletRequest.getHeader("Referer")
+
+        val recipe = recipeManager.getRecipeById(id.toLong()) ?: return "redirect:$referer"
+
+        if (recipe.author != user) return "redirect:$referer"
+
+        println("Deleting recipe: $recipe, redirecting to: $referer")
+        recipeManager.deleteRecipe(recipe)
+
+        return "redirect:$referer"
+    }
+
     @GetMapping("recipes/edit/{id}")
     fun getUpdateRecipeForm(@PathVariable id: String, model: Model, httpServletRequest: HttpServletRequest): String {
 
         val username = httpServletRequest.remoteUser
         val user = userManager.findUserByUsername(username)
 
-        val recipe = recipeManager.getRecipeById(id.toLong()) ?: return "index"
+        val recipe = recipeManager.getRecipeById(id.toLong()) ?: return "main"
 
         if (recipe.author != user) return "login"
 
@@ -92,18 +113,42 @@ class BaseController(
     @PostMapping("recipes/edit/{id}")
     fun updateRecipe(
         @PathVariable id: String,
+        @RequestParam(name = "addIngredient", required = false) addIngredient: String? = null,
+        @RequestParam(name = "removeIngredient", required = false) removeIngredient: String? = null,
+        @RequestParam(name = "addStep", required = false) addStep: String? = null,
+        @RequestParam(name = "removeStep", required = false) removeStep: String? = null,
         updateRecipeForm: CreateRecipeForm,
         httpServletRequest: HttpServletRequest
     ): String {
 
         val user = userManager.findUserByUsername(httpServletRequest.remoteUser)
 
+        addIngredient?.let {
+            updateRecipeForm.ingredients.add("")
+            return "editRecipe"
+        }
+
+        removeIngredient?.let {
+            updateRecipeForm.ingredients.removeAt(it.toInt())
+            return "editRecipe"
+        }
+
+        addStep?.let {
+            updateRecipeForm.steps.add("")
+            return "editRecipe"
+        }
+
+        removeStep?.let {
+            updateRecipeForm.steps.removeAt(it.toInt())
+            return "editRecipe"
+        }
+
         updateRecipeForm.user = user
         val recipe = updateRecipeForm.toRecipe()
 
         recipeManager.updateRecipe(recipe, id.toLong(), user)
 
-        return "redirect:/recipes"
+        return "redirect:/myRecipes"
     }
 
     @GetMapping("/recipes/create")
