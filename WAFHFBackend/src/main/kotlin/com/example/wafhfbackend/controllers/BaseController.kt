@@ -31,7 +31,7 @@ class BaseController(
 
     @GetMapping("/admin")
     fun showAdmin(model: Model): String {
-        return "adminpage"
+        return "admin"
     }
 
     @GetMapping("/login")
@@ -200,7 +200,7 @@ class BaseController(
 
         recipeManager.saveRecipe(createRecipeForm.toRecipe())
 
-        return "redirect:/recipes"
+        return "redirect:/myRecipes"
     }
 
     @GetMapping("/recipes/delete/{id}")
