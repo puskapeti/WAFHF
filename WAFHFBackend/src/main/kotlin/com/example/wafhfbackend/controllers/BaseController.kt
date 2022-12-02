@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.servlet.mvc.support.RedirectAttributes
 import javax.servlet.http.HttpServletRequest
 
 @Controller
@@ -54,11 +55,29 @@ class BaseController(
     }
 
     @PostMapping("/register")
-    fun registerUser(createUserForm: CreateUserForm, model: Model): String {
+    fun registerUser(createUserForm: CreateUserForm, model: Model,ra : RedirectAttributes): String {
+        createUserForm.password?.let {
+            if(null == it || null == createUserForm.passwordagain || createUserForm.passwordagain != it || it =="" || createUserForm.passwordagain==""){
+                ra.addAttribute("errorId",1)
+                return "redirect:/register"
+            }
+        }
+        createUserForm.email?.let {
+            if(it == null || it == ""){
+                ra.addAttribute("errorId",2)
+                return "redirect:/register"
+            }
+        }
+        createUserForm.username?.let {
+            if(userManager.checkUserByUsername(it)){
+                ra.addAttribute("errorId",3)
+                return "redirect:/register"
+            }
+        }
         val user = userManager.addUser(createUserForm)
         println("Registered user: $user")
         println(createUserForm.toString())
-        return "registerSuccessful"
+        return "login"
     }
 
     @GetMapping("/myRecipes")
@@ -72,7 +91,7 @@ class BaseController(
     @DeleteMapping("/recipes/delete/{id}")
     fun deleteRecipe(@PathVariable id: String, httpServletRequest: HttpServletRequest): String {
         val username = httpServletRequest.remoteUser
-        val user = userManager.findUserByUsername(username)
+        val user = userManager.findUserByUsername(username)!!
 
         val referer = httpServletRequest.getHeader("Referer")
 
@@ -90,7 +109,7 @@ class BaseController(
     fun getUpdateRecipeForm(@PathVariable id: String, model: Model, httpServletRequest: HttpServletRequest): String {
 
         val username = httpServletRequest.remoteUser
-        val user = userManager.findUserByUsername(username)
+        val user = userManager.findUserByUsername(username)!!
 
         val recipe = recipeManager.getRecipeById(id.toLong()) ?: return "main"
 
@@ -118,28 +137,33 @@ class BaseController(
         @RequestParam(name = "addStep", required = false) addStep: String? = null,
         @RequestParam(name = "removeStep", required = false) removeStep: String? = null,
         updateRecipeForm: CreateRecipeForm,
-        httpServletRequest: HttpServletRequest
+        httpServletRequest: HttpServletRequest,
+        model: Model
     ): String {
 
-        val user = userManager.findUserByUsername(httpServletRequest.remoteUser)
+        val user = userManager.findUserByUsername(httpServletRequest.remoteUser)!!
 
         addIngredient?.let {
             updateRecipeForm.ingredients.add("")
+            model.addAttribute("updateRecipeForm", updateRecipeForm)
             return "editRecipe"
         }
 
         removeIngredient?.let {
             updateRecipeForm.ingredients.removeAt(it.toInt())
+            model.addAttribute("updateRecipeForm", updateRecipeForm)
             return "editRecipe"
         }
 
         addStep?.let {
             updateRecipeForm.steps.add("")
+            model.addAttribute("updateRecipeForm", updateRecipeForm)
             return "editRecipe"
         }
 
         removeStep?.let {
             updateRecipeForm.steps.removeAt(it.toInt())
+            model.addAttribute("updateRecipeForm", updateRecipeForm)
             return "editRecipe"
         }
 
@@ -194,7 +218,7 @@ class BaseController(
 
         // get user
         val username = httpServletRequest.remoteUser
-        val user = userManager.findUserByUsername(username)
+        val user = userManager.findUserByUsername(username)!!
 
         createRecipeForm.user = user
 

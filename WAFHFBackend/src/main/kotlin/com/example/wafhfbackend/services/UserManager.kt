@@ -26,8 +26,11 @@ class UserManager(@Autowired val userRepository: UserRepository, @Autowired val 
         return null
     }
 
-    fun findUserByUsername(name: String): User {
+    fun findUserByUsername(name: String): User? {
         return userRepository.findByUsername(name)
+    }
+    fun checkUserByUsername(name:String):Boolean{
+        return userRepository.existsByUsername(name)
     }
 
 }

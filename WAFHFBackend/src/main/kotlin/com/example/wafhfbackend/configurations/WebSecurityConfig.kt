@@ -14,7 +14,7 @@ class WebSecurityConfig {
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http.authorizeRequests()
-            .mvcMatchers("/", "/home", "/register", "/registerUser", "/admin").permitAll()
+            .mvcMatchers("/", "/home", "/register", "/registerUser", "/admin","/logout").permitAll()
             .mvcMatchers("/recipes/**").permitAll()
             .mvcMatchers("/recipes/edit/**", "/recipes/delete/**").authenticated()
             .mvcMatchers("/css/**", "/images/**").permitAll()

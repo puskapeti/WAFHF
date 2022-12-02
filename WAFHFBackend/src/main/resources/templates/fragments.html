@@ -17,9 +17,11 @@
         <ul>
             <li><a class="pagenav1" href="/home">Főoldal</a></li>
             <li><a class="oldalnav2" href="/myRecipes">Saját receptek</a></li>
-            <li><a class="oldalnav3" href="/shoppinglist">Bevásárló lista</a></li>
-            <li><a class="user1" href="/login">Belépés</a></li>
-            <li><a class="user2" href="/registration">Regisztráció</a></li>
+            <li th:if="${#httpServletRequest.remoteUser}==null"><a class="user1" href="/login">Belépés</a></li>
+            <li th:unless="${#httpServletRequest.remoteUser}==null"><form class ="user2" th:action="@{/logout}" method="post">
+                <a href="#" onclick="this.parentNode.submit()">Kilépés</a>
+            </form></li>
+            <li th:if="${#httpServletRequest.remoteUser}==null"><a class="user2" href="/register">Regisztráció</a></li>
         </ul>
     </nav>
 

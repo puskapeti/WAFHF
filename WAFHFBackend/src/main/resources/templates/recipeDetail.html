@@ -10,24 +10,30 @@
 </head>
 <body>
 
-<header th:replace="fragments :: header"></header>
 
-<aside th:replace="fragments :: aside_left"></aside>
 
-<aside th:replace="fragments :: aside_right"></aside>
 
-<footer th:replace="fragments :: footer"></footer>
+<div class="container">
+    <header th:replace="fragments :: header"></header>
 
-<main class="container" th:object="${recipe}">
-    <p th:text="*{name}"></p>
-    <p th:text="*{description}"></p>
-    <div th:each="ingredient : *{ingredients}">
-        <p th:text="${ingredient}"></p>
-    </div>
-    <div th:each="step: *{steps}">
-        <p th:text="${step}"></p>
-    </div>
-</main>
+    <aside th:replace="fragments :: aside_left"></aside>
+
+    <aside th:replace="fragments :: aside_right"></aside>
+    <footer th:replace="fragments :: footer"></footer>
+    <main class="main" th:object="${recipe}">
+        <p th:text="*{name}"></p>
+        <p th:text="*{description}"></p>
+        <div th:each="ingredient : *{ingredients}">
+            <p th:text="${ingredient}"></p>
+        </div>
+        <div th:each="step: *{steps}">
+            <p th:text="${step}"></p>
+        </div>
+    </main>
+
+
+</div>
+
 
 </body>
 </html>

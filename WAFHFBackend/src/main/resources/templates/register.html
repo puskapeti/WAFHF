@@ -14,17 +14,18 @@
 </head>
 <body class="bg-light">
 
-<div th:replace="fragments :: header"></div>
-<div th:replace="fragments :: aside_left"></div>
-<div th:replace="fragments :: aside_right"></div>
-<div th:replace="fragments :: footer"></div>
+
 
 <div class="container">
+    <div th:replace="fragments :: header"></div>
+    <div th:replace="fragments :: aside_left"></div>
+    <div th:replace="fragments :: aside_right"></div>
+    <div th:replace="fragments :: footer"></div>
     <main>
         <div class="py-5 text-center">
             <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
             <h2>Register form</h2>
-            <p class="lead">We are happy to soon have you on board. Please fill out the required personal data below to register for our awsome service and start spending together with your friends</p>
+            <p class="lead">Örülünk, hogy hamarosan csatlakozni fog hozzánk. Előre is köszöntjük a Receptúra felhasználói között! Nyami!</p>
         </div>
 
         <div class="row g-5">
@@ -51,7 +52,6 @@
                         <div class="col-12">
                             <label for="username" class="form-label">Username</label>
                             <div class="input-group has-validation">
-                                <span class="input-group-text">@</span>
                                 <input type="text" class="form-control" id="username" th:field="*{username}" placeholder="Username" required>
                                 <div class="invalid-feedback">
                                     Your username is required.
@@ -61,25 +61,33 @@
 
                         <div class="col-sm-6">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="" value="" required>
-                            <div class="invalid-feedback">
-                                Valid password is required.
+                            <div class="input-group has-validation">
+                                <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="" value="" required>
+                                <div class="invalid-feedback">
+                                    Valid password is required.
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-sm-6">
                             <label for="passwordAgain" class="form-label">Repeat Password</label>
-                            <input type="password" class="form-control" id="passwordAgain" th:field="*{passwordagain}" placeholder="" value="" required>
-                            <div class="invalid-feedback">
-                                Valid password is required.
+                            <div class="input-group has-validation">
+                                <input type="password" class="form-control" id="passwordAgain" th:field="*{passwordagain}" placeholder="" value="" required>
+
+                                <div th:if="${#request.getParameter('errorId') == 1}">
+                                    Passwords [[${#request.getParameter('errorId')}]] do not match.
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-12">
                             <label for="email" class="form-label">Email <span class="text-muted"></span></label>
-                            <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="you@example.com">
-                            <div class="invalid-feedback">
-                                Please enter a valid email address for shipping updates.
+                            <div class="input-group has-validation">
+                                <span class="input-group-text">@</span>
+                                <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="you@example.com" required>
+                                <div class="invalid-feedback">
+                                    Your email is required.
+                                </div>
                             </div>
                         </div>
                     </div>
