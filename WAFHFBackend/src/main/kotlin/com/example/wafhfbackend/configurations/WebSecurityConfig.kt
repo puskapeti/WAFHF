@@ -14,24 +14,21 @@ class WebSecurityConfig {
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http.authorizeRequests()
-            .mvcMatchers("/", "/home", "/register", "/registerUser", "/admin","/logout").permitAll()
+            .mvcMatchers("/", "/home", "/register", "/registerUser", "/admin").permitAll()
             .mvcMatchers("/recipes/**").permitAll()
-            .mvcMatchers("/recipes/edit/**", "/recipes/delete/**").authenticated()
+            .mvcMatchers("/recipes/edit/**", "/recipes/delete/**", "/recipes/create/**").authenticated()
             .mvcMatchers("/css/**", "/images/**").permitAll()
             .mvcMatchers("/admin").hasAnyRole("ADMIN")
             .anyRequest().authenticated()
             .and()
             .formLogin()
             .loginPage("/login")
-            .defaultSuccessUrl("/home", true)
+            .defaultSuccessUrl("/", true)
             .permitAll()
             .and()
             .logout()
+            .logoutSuccessUrl("/login")
             .permitAll()
-            .and()
-            .exceptionHandling()
-            .accessDeniedPage("/error")
-            .and()
         return http.build()
     }
 

@@ -1,52 +1,30 @@
-
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <title>Főoldal</title>
-	<link rel="stylesheet" th:href="@{/css/main.css}">
-	<meta name="viewport" content="width=device-width? initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <title>RecepTúra</title>
+    <link rel="stylesheet" th:href="@{/css/default.css}">
+    <link th:replace="fragments :: bootstrap_css">
 </head>
 <body>
-	<div class="container">
+<div th:replace="fragments :: navbar"></div>
 
-		<header th:replace="fragments :: header"></header>
+<div class="container">
+    <h2 class="text-center mt-5 mb-4">Üdvözöljük a RecepTúra oldalán!</h2>
+    <h4 class="mb-2">Receptjeink:</h4>
+    <div class="card" th:each="recipe: ${recipes}">
+        <div class="card-body">
+            <h4 class="card-title" th:text="*{name}"></h4>
+            <p class="card-text" th:text="${recipe.description}"></p>
+            <div class="d-flex">
+                <a class="btn btn-info mx-1" th:href="@{'/recipes/' + ${recipe.recipeId}}">Bővebben</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-		<aside th:replace="fragments :: aside_left"></aside>
 
-		<aside th:replace="fragments :: aside_right"></aside>
-
-		<footer th:replace="fragments :: footer"></footer>
-
-		<!--From here comes the code that differs -->
-		<main class="main">	
-			
-			<section class="recipe_list">
-
-				<div th:each="recipe : ${recipes}">
-					<p class="name" th:text="${recipe.name}"></p>
-					<p th:text="${recipe.description}"></p>
-				</div>
-			</section>
-
-		</main>
-
-        <section class="buttons">
-			<p>
-				<div class="buttons1234" role="group" aria-label="First group">
-					<button type="button1" class="btn btn-primary">1</button>
-					<button type="button2" class="btn btn-primary">2</button>
-					<button type="button3" class="btn btn-primary">3</button>
-					<button type="button4" class="btn btn-primary">4</button>
-					...
-					<button type="buttonlast" class="btn btn-primary"> &#10145;</button>
-				</div>
-				
-				<a href="#">Ugrás a lap tetejére &uarr; </a>
-			</p>
-		</section>
-	</div>
+<footer th:replace="fragments :: footer"></footer>
+<script th:replace="fragments::bootstrap_js"></script>
 </body>
 </html>
-

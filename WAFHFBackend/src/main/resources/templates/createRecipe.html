@@ -1,93 +1,70 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Recept készítése</title>
-    <link rel="stylesheet" th:href="@{/css/main.css}">
-    <meta name="viewport" content="width=device-width? initial-scale=1.0"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Új recept készítése</title>
+    <link rel="stylesheet" th:href="@{/css/default.css}">
+    <link th:replace="fragments :: bootstrap_css">
 </head>
 <body>
-<div class="container">
+<div th:replace="fragments :: navbar"></div>
 
-    <header th:replace="fragments :: header"></header>
-
-    <aside th:replace="fragments :: aside_left"></aside>
-
-    <aside th:replace="fragments :: aside_right"></aside>
-
-    <footer th:replace="fragments :: footer"></footer>
-
-    <!--From here comes the code that differs -->
-    <main class="main">
-        <form th:action="@{/recipes/create}"
-              th:method="post"
-              th:object="${createRecipeForm}"
-              class="needs-validation"
-              novalidate>
-            <div class="form-group">
-                <label for="recipeNameInput">Recipe name</label>
-                <input type="text"
-                       class="form-control"
-                       id="recipeNameInput"
-                       th:field="*{recipeName}"
-                       placeholder="Name">
-            </div>
-            <div class="form-group">
-                <label for="recipeDescInput">Recipe Description</label>
-                <textarea class="form-control"
-                          rows="3"
-                          id="recipeDescInput"
-                          placeholder="Description..."
-                          th:field="*{description}"></textarea>
-            </div>
-            <div th:each="ingredient, status : ${createRecipeForm.ingredients}" class="input-group my-1">
-                <label>
-                    <input class="form-control" th:field="*{ingredients[__${status.index}__]}">
-                </label>
-                <div class="input-group-append">
-                    <button class="btn btn-danger" type="submit" name="removeIngredient" th:value="${status.index}">
-                        Remove
-                    </button>
-                </div>
-            </div>
-            <button class="btn btn-primary mt-2" type="submit" name="addIngredient">Add new ingredient</button>
-            <br>
-            <div th:each="step, status : ${createRecipeForm.steps}" class="input-group my-1">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend" th:text="*{__${status.index}__}"></span>
-                </div>
-                <label>
-                    <input class="form-control" th:field="*{steps[__${status.index}__]}">
-                </label>
-                <div class="input-group-append">
-                    <button class="btn btn-danger" type="submit" name="removeStep"
-                            th:value="*{__${status.index}__ + 1}">Remove
-                    </button>
-                </div>
-            </div>
-            <button class="btn btn-primary mt-2" type="submit" name="addStep">Add new step</button>
-            <br>
-            <button class="btn btn-primary mt-2" type="submit">Submit</button>
-        </form>
-    </main>
-
-    <section class="buttons">
-        <p>
-        <div class="buttons1234" role="group" aria-label="First group">
-            <button type="button1" class="btn btn-primary">1</button>
-            <button type="button2" class="btn btn-primary">2</button>
-            <button type="button3" class="btn btn-primary">3</button>
-            <button type="button4" class="btn btn-primary">4</button>
-            ...
-            <button type="buttonlast" class="btn btn-primary"> &#10145;</button>
+<main class="container">
+    <h2 class="text-center mt-5 mb-4">Új recept készítése</h2>
+    <form th:action="@{/recipes/create}"
+          th:method="post"
+          th:object="${createRecipeForm}"
+          class="needs-validation"
+          novalidate>
+        <div class="form-group">
+            <label for="recipeNameInput">Recept neve</label>
+            <input type="text"
+                   class="form-control"
+                   id="recipeNameInput"
+                   th:field="${createRecipeForm.recipeName}"
+                   placeholder="Név">
         </div>
+        <div class="form-group">
+            <label for="recipeDescInput">A recept rövid leírása</label>
+            <textarea class="form-control"
+                      rows="3"
+                      id="recipeDescInput"
+                      placeholder="Leírás..."
+                      th:field="${createRecipeForm.description}"></textarea>
+        </div>
+        <div th:each="ingredient, status : ${createRecipeForm.ingredients}" class="input-group my-1">
+            <label>
+                <input class="form-control" th:field="*{ingredients[__${status.index}__]}">
+            </label>
+            <div class="input-group-append">
+                <button class="btn btn-danger ms-2" type="submit" name="removeIngredient" th:value="${status.index}">
+                    Eltávolítás
+                </button>
+            </div>
+        </div>
+        <button class="btn btn-primary mt-2" type="submit" name="addIngredient">Új hozzávaló hozzáadása</button>
+        <br>
+        <div th:each="step, status : ${createRecipeForm.steps}" class="input-group my-1">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend" th:text="*{__${status.index}__}"></span>
+            </div>
+            <label>
+                <input class="form-control" th:field="*{steps[__${status.index}__]}">
+            </label>
+            <div class="input-group-append">
+                <button class="btn btn-danger ms-2" type="submit" name="removeStep"
+                        th:value="*{__${status.index}__ + 1}">Eltávolítás
+                </button>
+            </div>
+        </div>
+        <button class="btn btn-primary mt-2" type="submit" name="addStep">Új lépés hozzáadása</button>
+        <br>
+        <button class="btn btn-success mt-2" type="submit">Kész!</button>
+    </form>
+</main>
 
-        <a href="#">Ugrás a lap tetejére &uarr; </a>
-        </p>
-    </section>
-</div>
+
+<footer th:replace="fragments :: footer"></footer>
+<script th:replace="fragments::bootstrap_js"></script>
 </body>
 </html>
-

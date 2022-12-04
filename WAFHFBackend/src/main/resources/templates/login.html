@@ -1,94 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Bejelentkezés</title>
-    <link rel="stylesheet" th:href="@{/css/index.css}">
-    <meta name="viewport" content="width=device-width? initial-scale=1.0"/>
+    <link th:replace="fragments::bootstrap_css">
+    <link rel="stylesheet" th:href="@{/css/default.css}">
 </head>
 <body>
-<div class="container">
 
-    <header class="header">
-        <p class="cover">
-            Üdvözöljük a RecepTúra oldalán!
-        </p>
-        <img src="images/logo.jpeg"/>
-    </header>
+<div th:replace="fragments::navbar"></div>
 
-    <aside th:replace="fragments :: aside_left"></aside>
-
-    <aside class="aside_right">
-        <section class="random_offer">
-            <h2>
-                <u>Heti ajánlatunk:</u>
-            </h2>
-            <p>
-                *random Recept neve backendből*
-            </p>
-            <img src="images/csiga.jpeg" style="border:solid 2px #000000;
-					box-shadow: 5px 5px ;
-					width: 95%;
-					height: 95%;">
-            <a href="recipe_page.html"> Ugrás ehhez a recepthez</a>
-            <a href="recipe_page.html">Ugrás random recepthez &#128170; </a>
-        </section>
-        <section class="adverts_right">
-            <h3>
-                Hírdetés:
-            </h3>
-            <p>
-                Divatos és minőségi ruhák a legjobb áron!
-                Ugorj be a H&amp;M-be!
-            </p>
-            <img src="../pages/images/hmhird.jpeg" alt="Advertisement" style="box-shadow: 2px 2px #5f5f5f;"/>
-            <p>
-                Megjelent a mozikban a Croodék c. mesefilm.
-                Vár a Cinema City!
-            </p>
-            <img src="../pages/images/croods.gif" alt="Advertisement" style="box-shadow: 2px 2px #5f5f5f;"/>
-        </section>
-    </aside>
-
-    <footer class="footer">
-
-        <a class="foot_youtube" href="https://www.youtube.com/user/MrSzoky68">youtube/receptura</a>
-        <p><img src="images/yout.webp" width="40" height="40"/></p>
-        </p>
-        <div class="foot_cpr">
-            <div><small>Copyright &copy; 2018-2022 <p>Minden jog fenntartva!</p></small></div>
+<div class="container w-75 h-80">
+    <h2 class="text-center mt-3 mb-1">Bejelentkezés</h2>
+    <form th:action="@{/login}" method="post">
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="username">Email cím</label>
+            <input type="text" id="username" name="username" class="form-control"/>
         </div>
-        <p><img src="images/face.webp" width="40" height="40"/></p>
-        <a class="foot_face" href="https://www.facebook.com/NoSalty">facebook/receptura</a>
 
-    </footer>
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="password">Jelszó</label>
+            <input type="password" id="password" name="password" class="form-control"/>
+        </div>
 
-    <!--From here comes the code that differs -->
-    <main class="main">
-
-        <h2>
-            A belépéshez adja meg e-mail címét és jelszavát:
-        </h2>
-        <form th:action="@{/login}" class="login_form" method="post">
-            <label for="username">E-mail cím:</label><br>
-            <input placeholder="Minta123" type="text" id="username" name="username"><br>
-            <label for="password">Jelszó:</label><br>
-            <input type="text" id="password" name="password"><br>
-            <p></p>
-            <input class="loginbutton" type="submit" value="Belépés">
-        </form>
-        <p>
-            <label>
-                <input type="checkbox" value="robot">Nem vagyok robot.</label>
-        <p></p>
-        A belépéshez <a th:href="@{/register}"><small>regisztráció szükséges</small></a>
-
-        </p>
-
-    </main>
-
-
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4 w-100">Bejelentkezés</button>
+    </form>
+    <p class="text-center">
+        A belépéshez <a th:href="@{/register}">regisztráció</a> szükséges.
+    </p>
 </div>
+
+<footer th:replace="fragments::footer"></footer>
+<script th:replace="fragments::bootstrap_js"></script>
 </body>
 </html>
-
