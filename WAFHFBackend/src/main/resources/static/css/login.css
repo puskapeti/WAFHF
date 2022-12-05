@@ -24,7 +24,7 @@ body{
 	display: flex;
 	flex-direction: column;
 	border: 2px solid black;
-	background-image: url(../pages/images/header.jpeg);
+background-image: url(../images/header.jpeg);
 	background-position: center;
 	background-size: cover;
 }
@@ -284,3 +284,4 @@ footer .foot_face{
 	border-radius: 4px;
 	box-shadow: #575757 2px 2px;
 }
+

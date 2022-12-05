@@ -230,7 +230,7 @@ class BaseController(
     @GetMapping("/recipes/delete/{id}")
     fun deleteRecipe(@PathVariable id: String): String {
         recipeManager.deleteRecipe(id.toLong())
-        return "redirect:/recipes"
+        return "redirect:/myRecipes"
     }
 
 }
