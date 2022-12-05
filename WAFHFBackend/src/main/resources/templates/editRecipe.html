@@ -13,7 +13,7 @@
 <div class="container" th:object="${updateRecipeForm}">
     <h2 class="text-center mt-5 mb-4" th:text="'Recept szerkesztése: ' + *{recipeName}"></h2>
     <hr>
-    <form th:action="@{'/recipes/edit' + ${updateRecipeForm.id}}"
+    <form th:action="@{'/recipes/edit/' + ${updateRecipeForm.id}}"
           th:method="post"
           th:object="${updateRecipeForm}"
           class="needs-validation"
