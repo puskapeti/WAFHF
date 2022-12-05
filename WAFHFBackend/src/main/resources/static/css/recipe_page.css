@@ -355,7 +355,7 @@ footer .foot_face{
 	grid-column-start: 1;
 	grid-column-end: 4;
 	grid-row: 1;
-	background-image: url(../pages/images/pancake.jpeg);
+	background-image: url(/images/header.jpeg);
 	background-position: center;
 	background-size: 100%;
 	bottom: 0px;
@@ -401,3 +401,6 @@ footer .foot_face{
     font-size: large
 }
 
+.main p strong{
+    font-size: larger;
+}
