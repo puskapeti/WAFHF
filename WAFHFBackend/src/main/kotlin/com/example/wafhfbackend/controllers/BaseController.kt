@@ -92,6 +92,7 @@ class BaseController(
     fun getMyRecipes(model: Model, httpServletRequest: HttpServletRequest): String {
         val recipes = recipeManager.getRecipesOfUser(httpServletRequest.remoteUser)
         model.addAttribute("recipes", recipes)
+        println(recipes)
 
         val user = getUser(httpServletRequest)
         model.addAttribute("user", user)
@@ -126,10 +127,13 @@ class BaseController(
         val updateRecipeForm = CreateRecipeForm().also { form ->
             form.id = recipe.recipeId
             form.recipeName = recipe.name
+            form.description = recipe.description
             form.ingredients = recipe.ingredients.toMutableList()
             form.steps = recipe.steps.toMutableList()
             form.user = user
         }
+
+        println(updateRecipeForm.toRecipe())
 
         model.addAttribute("updateRecipeForm", updateRecipeForm)
         model.addAttribute("user", user)

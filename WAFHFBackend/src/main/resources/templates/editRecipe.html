@@ -13,9 +13,8 @@
 <main class="container" th:object="${updateRecipeForm}">
     <h2 class="text-center mt-5 mb-4" th:text="'Recept szerkesztése: ' + *{recipeName}"></h2>
     <hr>
-    <form th:action="@{'/recipes/edit/' + ${updateRecipeForm.id}}"
+    <form th:action="@{'/recipes/edit/' + *{id}}"
           th:method="post"
-          th:object="${updateRecipeForm}"
           class="needs-validation"
           novalidate>
         <div class="form-group">
@@ -23,7 +22,7 @@
             <input type="text"
                    class="form-control"
                    id="recipeNameInput"
-                   th:field="${updateRecipeForm.recipeName}"
+                   th:field="*{recipeName}"
                    placeholder="Név">
         </div>
         <div class="form-group">
@@ -32,7 +31,7 @@
                       rows="3"
                       id="recipeDescInput"
                       placeholder="Leírás..."
-                      th:field="${updateRecipeForm.description}"></textarea>
+                      th:field="*{description}"></textarea>
         </div>
         <div th:each="ingredient, status : ${updateRecipeForm.ingredients}" class="input-group my-1">
             <label>
@@ -51,11 +50,11 @@
                 <span class="input-group-text" id="inputGroupPrepend" th:text="*{__${status.index}__}"></span>
             </div>
             <label>
-                <input class="form-control" th:field="*{steps[__${status.index}__]}">
+                <textarea rows="3" class="form-control" th:field="*{steps[__${status.index}__]}"></textarea>
             </label>
             <div class="input-group-append">
                 <button class="btn btn-danger ms-2" type="submit" name="removeStep"
-                        th:value="*{__${status.index}__ + 1}">Eltávolítás
+                        th:value="*{__${status.index}__}">Eltávolítás
                 </button>
             </div>
         </div>

@@ -16,7 +16,7 @@
 
     <div class="card" th:each="recipe: ${recipes}">
         <div class="card-body">
-            <h4 class="card-title" th:text="*{name}"></h4>
+            <h4 class="card-title" th:text="${recipe.name}"></h4>
             <p class="card-text" th:text="${recipe.description}"></p>
             <div class="d-flex">
                 <a class="btn btn-info mx-1" th:href="@{'/recipes/' + ${recipe.recipeId}}">Bővebben</a>
