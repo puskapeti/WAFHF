@@ -15,8 +15,8 @@ class WebSecurityConfig {
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http.authorizeRequests()
             .mvcMatchers("/", "/home", "/register", "/registerUser", "/admin").permitAll()
-            .mvcMatchers("/recipes/**").permitAll()
-            .mvcMatchers("/recipes/edit/**", "/recipes/delete/**", "/recipes/create/**").authenticated()
+            .mvcMatchers("/recipes").permitAll()
+            .mvcMatchers("/recipes/edit/**", "/recipes/delete/**", "/recipes/create").authenticated()
             .mvcMatchers("/css/**", "/images/**").permitAll()
             .mvcMatchers("/admin").hasAnyRole("ADMIN")
             .anyRequest().authenticated()

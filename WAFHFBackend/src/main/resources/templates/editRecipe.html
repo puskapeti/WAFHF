@@ -10,7 +10,7 @@
 <body>
 <div th:replace="fragments :: navbar"></div>
 
-<div class="container" th:object="${updateRecipeForm}">
+<main class="container" th:object="${updateRecipeForm}">
     <h2 class="text-center mt-5 mb-4" th:text="'Recept szerkesztése: ' + *{recipeName}"></h2>
     <hr>
     <form th:action="@{'/recipes/edit/' + ${updateRecipeForm.id}}"
@@ -63,7 +63,9 @@
         <br>
         <button class="btn btn-success mt-2" type="submit">Kész!</button>
     </form>
-</div>
+</main>
+
+<div th:replace="fragments::footer"></div>
 
 </body>
 </html>

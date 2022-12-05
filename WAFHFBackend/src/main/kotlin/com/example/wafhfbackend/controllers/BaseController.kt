@@ -46,9 +46,12 @@ class BaseController(
     }
 
     @GetMapping("/recipes/{id}")
-    fun getRecipeDetail(@PathVariable id: String, model: Model): String {
+    fun getRecipeDetail(@PathVariable id: String, model: Model, httpServletRequest: HttpServletRequest): String {
         val recipe = recipeManager.getRecipeById(id.toLong())
         model.addAttribute("recipe", recipe)
+
+        val user = getUser(httpServletRequest)
+        model.addAttribute("user", user)
 
         return "recipeDetail"
     }
@@ -62,13 +65,13 @@ class BaseController(
     @PostMapping("/register")
     fun registerUser(createUserForm: CreateUserForm, model: Model,ra : RedirectAttributes): String {
         createUserForm.password?.let {
-            if(null == it || null == createUserForm.passwordagain || createUserForm.passwordagain != it || it =="" || createUserForm.passwordagain==""){
+            if(null == createUserForm.passwordagain || createUserForm.passwordagain != it || it ==""){
                 ra.addAttribute("errorId",1)
                 return "redirect:/register"
             }
         }
         createUserForm.email?.let {
-            if(it == null || it == ""){
+            if(it == ""){
                 ra.addAttribute("errorId",2)
                 return "redirect:/register"
             }

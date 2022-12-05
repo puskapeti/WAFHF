@@ -28,7 +28,7 @@
             </ul>
             <a th:if="${user eq null}" th:href="@{/login}" class="btn btn-outline-success">Bejelentkezés</a>
             <div th:if="${user ne null}" class="d-flex">
-                <p class="nav-item align-self-center" th:text="'Üdv, ' + ${user.username} ?: ''"></p>
+                <p class="nav-item align-self-center mb-0" th:text="'Üdv, ' + ${user.username} ?: ''"></p>
                 <form class="form-inline" th:action="@{/logout}" th:method="post">
                     <button type="submit" class="btn btn-outline-warning ms-2">Kijelentkezés</button>
                 </form>
@@ -37,7 +37,7 @@
     </div>
 </nav>
 
-<footer th:fragment="footer" class="py-3" style="position: absolute; bottom: 0; width: 100%">
+<footer th:fragment="footer" class="py-3" >
     <ul class="nav justify-content-center border-bottom">
         <li class="nav-item"><p class="nav-link px-2 text-muted">Puska Péter</p></li>
         <li class="nav-item"><p class="nav-link px-2 text-muted">Kránitz Krisztián</p></li>

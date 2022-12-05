@@ -9,7 +9,7 @@
 </head>
 <body>
 <div th:replace="fragments :: navbar"></div>
-<div class="container" th:object="${recipe}">
+<main class="container" th:object="${recipe}">
     <h2 class="text-center mt-5 mb-4" th:text="*{name}"></h2>
     <hr>
     <p th:text="*{description}"></p>
@@ -25,7 +25,7 @@
             <li th:each="step : ${recipe.steps}" class="list-group-item" th:text="${step}"></li>
         </ul>
     </div>
-</div>
+</main>
 
 <footer th:replace="fragments :: footer"></footer>
 <script th:replace="fragments::bootstrap_js"></script>

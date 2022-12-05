@@ -10,12 +10,12 @@
 
 <div th:replace="fragments::navbar"></div>
 
-<div class="container w-75 h-80">
+<main class="container w-75 h-80">
     <h2 class="text-center mt-3 mb-1">Bejelentkezés</h2>
     <form th:action="@{/login}" method="post">
         <!-- Email input -->
         <div class="form-outline mb-4">
-            <label class="form-label" for="username">Email cím</label>
+            <label class="form-label" for="username">Felhasználónév</label>
             <input type="text" id="username" name="username" class="form-control"/>
         </div>
 
@@ -31,7 +31,7 @@
     <p class="text-center">
         A belépéshez <a th:href="@{/register}">regisztráció</a> szükséges.
     </p>
-</div>
+</main>
 
 <footer th:replace="fragments::footer"></footer>
 <script th:replace="fragments::bootstrap_js"></script>

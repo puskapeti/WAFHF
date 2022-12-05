@@ -9,7 +9,7 @@
 <body>
 <div th:replace="fragments :: navbar"></div>
 
-<div class="container">
+<main class="container">
     <h2 class="text-center mt-5 mb-4">Üdvözöljük a RecepTúra oldalán!</h2>
     <h4 class="mb-2">Receptjeink:</h4>
     <div class="card" th:each="recipe: ${recipes}">
@@ -21,7 +21,7 @@
             </div>
         </div>
     </div>
-</div>
+</main>
 
 
 <footer th:replace="fragments :: footer"></footer>
