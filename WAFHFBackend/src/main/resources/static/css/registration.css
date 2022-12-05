@@ -24,7 +24,7 @@ body{
 	display: flex;
 	flex-direction: column;
 	border: 2px solid black;
-	background-image: url(../pages/images/header.jpeg);
+background-image: url(../images/header.jpeg);
 	background-position: center;
 	background-size: cover;
 }
@@ -297,4 +297,26 @@ footer .foot_face{
 .aszf{
 	color:#3993c7;
 	position: center;
+}
+
+.needs-validation button{
+   color: white;
+    padding: 2%;
+    margin: 2%;
+    border: solid 1px rgb(61, 61, 61);
+    border-radius: 10px;
+    background-color: rgba(104,126,77,255)
+}
+
+.needs-validation button:hover{
+    background-color: #035800;
+	color: white;
+	font-style: bold;
+}
+
+.needs-validation button:active{
+ 	background-color: #035800;
+ 	color: white;
+ 	font-style: bold;
+ 	box-shadow: 2px 2px rgb(61, 61, 61)
 }

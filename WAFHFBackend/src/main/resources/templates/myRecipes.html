@@ -23,12 +23,17 @@
             <a class="buttonmod" href="/recipes/create">Új recept hozzáadása</a>
         </p>
         <section>
-            <div th:each="recipe : ${recipes}">
+            <div class="container_recipe" th:each="recipe : ${recipes}">
                 <h1 th:text="${recipe.name}">Hétfő</h1>
-                <img th:src="@{images/pancake.jpeg}" title="food_img"/>
-                <a th:href="@{'/recipes/' + ${recipe.recipeId}}">Elkészítem</a>
-                <a th:href="@{'/recipes/edit/' + ${recipe.recipeId}}">Módosítás</a>
-                <form th:action="@{'/recipes/delete/' + ${recipe.recipeId}}" method="post">
+                <div class="img_container" th:switch="${recipe.name}">
+                    <img class="food" th:case="'Amerikai Palacsinta'" th:src="@{/images/palacsinta.jpeg}" title="food_img"/>
+                    <img class="food"  th:case="'Tyúkhúsleves'" th:src="@{/images/tyukleves.jpeg}" title="food_img"/>
+                    <img class="food"  th:case="*" th:src="@{/images/default.jpeg}" title="food_img"/>
+                </div>
+                <p class="description" th:text="${recipe.description}"></p>
+                <a class ="cookit" th:href="@{'/recipes/' + ${recipe.recipeId}}" style="grid-column: 3;	grid-row: 2;">Elkészítem</a>
+                <a class ="mod" th:href="@{'/recipes/edit/' + ${recipe.recipeId}}"style="grid-column: 3;	grid-row: 3;">Módosítás</a>
+                <form class="del" th:action="@{'/recipes/delete/' + ${recipe.recipeId}}" method="delete" style="grid-column: 3;	grid-row: 4;">
                     <button type="submit">Törlés</button>
                 </form>
             </div>

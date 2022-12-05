@@ -14,12 +14,19 @@ body{
 	grid-column-start: 1;
 	grid-column-end: 4;
 	grid-row: 1;
-	background-image: url(../pages/images/palacsinta.jpeg);
-	background-position: center;
-	background-size: 100%;
-	bottom: 0px;
-	left: 0px;
+	background-color: #EEE8AA;
+	padding-left: 2.5%;
+	padding-right: 2.5%;
+	padding-bottom: 25px;
+	color: black;
+	text-align: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
 	border: 2px solid black;
+background-image: url(../images/header.jpeg);
+	background-position: center;
+	background-size: cover;
 }
 
 .cover{
@@ -34,7 +41,7 @@ body{
 	background-clip: border-box;
 	border-radius: 4px;
 }
-
+/*  <header th:replace="fragments :: header"></header>*/
 
 .header img{
 	border:solid 4px #000000;
@@ -110,7 +117,7 @@ body{
 
 	border-top: solid 2px #000000;
 	padding: 2%;
-	
+
 }
 .offer{
 	border-bottom: 2px #000000;
@@ -179,7 +186,7 @@ body{
   	bottom: 0px;
   	left: 0px;
 	background-color: #ffffff;
-	display: flex; 
+	display: flex;
 	flex-direction: row;
 	justify-content: center;
 }
@@ -238,13 +245,7 @@ footer .foot_face{
 	box-shadow: 2px 2px #575757;
 }
 
-
 /* From here comes the code that differs */
-
-.main{
-	background-color: #ededed;
-	padding: 3%;
-}
 
 .buttons0{
 	background-color: rgba(250, 246, 237, 255);
@@ -378,3 +379,25 @@ footer .foot_face{
 	grid-row-start: 1;
 	grid-column-end: 2;
 }
+
+.main{
+    margin: 5%
+}
+
+.name{
+    font-size: xx-large;
+}
+
+.desc{
+    font-size: larger;
+}
+
+.step{
+    font-size: large
+}
+
+.ing{
+
+    font-size: large
+}
+

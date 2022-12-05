@@ -23,10 +23,15 @@
 		<main class="main">	
 			
 			<section class="recipe_list">
-
-				<div th:each="recipe : ${recipes}">
+				<div class="recipe_container" th:each="recipe : ${recipes}">
+					<div class="img_container" th:switch="${recipe.name}">
+						<img class="food" th:case="'Amerikai Palacsinta'" th:src="@{/images/palacsinta.jpeg}" title="food_img"/>
+						<img class="food"  th:case="'Tyúkhúsleves'" th:src="@{/images/tyukleves.jpeg}" title="food_img"/>
+						<img class="food"  th:case="*" th:src="@{/images/default.jpeg}" title="food_img"/>
+					</div>
 					<p class="name" th:text="${recipe.name}"></p>
-					<p th:text="${recipe.description}"></p>
+					<p class="description" th:text="${recipe.description}"></p>
+					<a class ="cookit" th:href="@{'/recipes/' + ${recipe.recipeId}}" style="grid-column: 3;	grid-row: 2;">Elkészítem</a>
 				</div>
 			</section>
 
